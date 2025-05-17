@@ -62,3 +62,10 @@ h1 {
     margin: 0 auto;
     padding: clamp(1rem, 5vw, 3rem);
   }
+
+  .nav-name {
+  color: #F5DAFF;
+  font-weight: bold;
+  font-size: clamp(1rem, 2vw, 24px);
+  padding: 1rem;
+}
