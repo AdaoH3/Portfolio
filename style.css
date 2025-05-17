@@ -1,0 +1,64 @@
+
+:root {
+    --Gry2: #A9ACA9;
+  }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(to bottom, #3F3244 0%, #2F2235 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    font-family: sans-serif;
+  }
+
+/* Navigation bar */
+nav {
+  padding: 1rem;
+  font-size: clamp(1.4rem, 2vw, 30px);
+  text-align: center;
+}
+
+nav a {
+  color: #F5DAFF;
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+h1 {
+    position: relative;
+    text-align: center;
+    font-family: 'Jersey 10', sans-serif;
+    font-size: clamp(2.5rem, 40vw, 180px);
+    font-weight: 400;
+    background: radial-gradient(circle at center, #ceadda 0%, #ffffff 100%);
+    background-size: 150% 150%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: breathe-text 4s ease-in-out infinite;
+  }
+  
+  @keyframes breathe-text {
+    0%, 100% {
+      background-size: 100% 100%;
+      opacity: 1;
+    }
+    50% {
+      background-size: 200% 200%;
+      opacity: 0.8;
+    }
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(1rem, 5vw, 3rem);
+  }

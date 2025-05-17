@@ -1,0 +1,115 @@
+/* General resets and layout */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(to bottom, #3F3244 0%, #2F2235 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    font-family: sans-serif;
+  }
+  
+  /* Navigation bar */
+  nav {
+    padding: 1rem;
+    font-size: clamp(1.4rem, 2vw, 30px);
+    text-align: center;
+  }
+  
+  nav a {
+    color: #F5DAFF;
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #fff;
+  }
+  
+  /* Header */
+  header {
+    padding: 2rem 1rem;
+    background-color: #3F3244;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  header p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    max-width: 800px;
+    margin: auto;
+    padding: 0 1rem;
+  }
+  
+  /* Dropdown select */
+  select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #F5DAFF;
+    color: #2F2235;
+    border: none;
+    margin-top: 1rem;
+  }
+  
+  /* Section containers */
+  .section {
+    display: none;
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .section.active {
+    display: block;
+  }
+  
+  /* Headings inside sections */
+  .section h2 {
+    color: #F5DAFF;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Paragraphs in sections */
+  .section p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1.05rem;
+  }
+  
+  /* Responsive iframe styling */
+  iframe {
+    width: 100%;
+    height: 800px;
+    margin-top: 1rem;
+    border: none;
+  }
+  
+  /* Responsive image styling */
+  img {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
+  
+  /* Section spacing */
+  label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  
