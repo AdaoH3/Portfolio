@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>High School Projects</title>
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thermoelectric Cooler.html">Thermoelectric AC</a>
+    <a href="HSProjects.html">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <header>
+    <h1>High School Projects</h1>
+    <p>This page contains a summary of my highschool projects throughout high school documenting what the goal was,
+        what I learnt out of each, and linking the code and or tutorial/explanation of each project's technicalities.</p>
+  </header>
+
+  <div class="projects-wrapper">
+    <!-- GIF Cycle Project -->
+    <details class="project" open>
+      <summary>
+        <span>Thermoelectric AC Prototype</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p>A solid-state cooling prototype using Peltier (TEC) modules to eliminate conventional refrigerants.</p>
+        <h4>Goals</h4>
+        <ul>
+          <li>Reduce reliance on vapor-compression systems</li>
+          <li>Evaluate COP vs. airflow design</li>
+          <li>Prototype compact desktop cooling unit</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>TEC1-12706</li>
+          <li>Aluminum heat sinks</li>
+          <li>Thermal paste</li>
+          <li>PWM fan control</li>
+          <li>12V DC supply</li>
+        </ul>
+        <h4>Progress</h4>
+        <p>Achieved a 14–16°C delta across the hot/cold sides under stable load with optimized airflow baffles.</p>
+        <img src="images/CoolingAC.png" alt="Thermoelectric module assembly">
+      </div>
+    </details>
+
+    <!-- Confetti Launcher -->
+    <details class="project">
+      <summary>
+        <span>Confetti Launcher Build</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p>Spring & compressed-air hybrid launcher designed for safe indoor celebration effects.</p>
+        <h4>Design Highlights</h4>
+        <ul>
+          <li>Removable cardboard barrel sleeves</li>
+          <li>Fast-reset plunger system</li>
+          <li>Low-mass biodegradable paper fill</li>
+        </ul>
+        <h4>Safety Considerations</h4>
+        <p>Edges rounded, pressure limited via bleed ports, no metal fasteners in discharge path.</p>
+        <img src="images/confetti-launcher.jpg" alt="Confetti launcher device">
+      </div>
+    </details>
+
+    <!-- Science Fair -->
+    <details class="project">
+      <summary>
+        <span>Science Fair Presentation</span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p>Presented experimental results, methodology diagrams, and iterative design improvements.</p>
+        <h4>Sections Covered</h4>
+        <ol>
+          <li>Problem Statement & Hypothesis</li>
+          <li>Experimental Setup</li>
+          <li>Data Collection & Charts</li>
+          <li>Limitations & Next Steps</li>
+        </ol>
+        <div class="grid-2">
+          <img src="images/ImageHappy.jpg" alt="At science fair">
+          <img src="images/ImagePresenting.jpg" alt="Presenting project">
+        </div>
+      </div>
+    </details>
+  </div>
+</body>
+</html>
