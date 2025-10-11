@@ -219,7 +219,51 @@ details.project[open] summary .chevron {
   object-fit: cover;
 }
 
+/* Ensure inline project videos match image styling */
+.project-body .project-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px -4px rgba(0,0,0,0.6);
+  object-fit: cover;
+  margin: 1rem 0;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Project link buttons */
+.project-links {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin: .5rem 0 1rem;
+}
+
+.project-body a.btn-link {
+  display: inline-flex;
+  align-items: center;
+  padding: .5rem .9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(245,218,255,0.35);
+  color: #F5DAFF;
+  text-decoration: none;
+  background: rgba(245,218,255,0.08);
+  box-shadow: 0 4px 12px -8px rgba(0,0,0,.8);
+  transition: transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.project-body a.btn-link:hover {
+  transform: translateY(-1px);
+  background: rgba(245,218,255,0.18);
+  border-color: rgba(245,218,255,0.6);
+  color: #fff;
+}
+
+.project-body a.btn-link.secondary {
+  background: transparent;
+  border-color: rgba(245,218,255,0.25);
 }
