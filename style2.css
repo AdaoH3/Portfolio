@@ -9,6 +9,65 @@ html, body {
     color: white;
     font-family: sans-serif;
   }
+
+  /* Prevent text cursor/caret from appearing */
+  *, *::before, *::after {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default !important;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Remove focus outlines that can cause cursor issues */
+  *:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Prevent text selection on body and html */
+  html, body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default !important;
+  }
+
+  /* Allow text selection only where specifically needed */
+  p, span:not(.chevron):not(.expand-icon):not(.project-year) {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    cursor: text !important;
+  }
+
+  /* Clickable elements should have pointer cursor */
+  a, button, summary, .project-card, details, select {
+    cursor: pointer !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Prevent any contenteditable behavior */
+  * {
+    -webkit-user-modify: read-only;
+  }
+
+  /* Override any inherited cursor styles */
+  div, span, section, main, header, nav, ul, li, h1, h2, h3, h4, h5, h6 {
+    cursor: default !important;
+  }
+
+  /* Force no caret on any element that might be focusable */
+  *[tabindex], *:focus, *:active {
+    caret-color: transparent !important;
+  }
   
   /* Navigation bar */
   nav {
@@ -22,6 +81,7 @@ html, body {
     text-decoration: none;
     margin: 0 1rem;
     transition: color 0.3s ease;
+    cursor: pointer;
   }
   
   nav a:hover {
@@ -60,6 +120,7 @@ html, body {
     color: #2F2235;
     border: none;
     margin-top: 1rem;
+    cursor: pointer;
   }
   
   /* Section containers */
@@ -91,9 +152,57 @@ html, body {
   /* Responsive iframe styling */
   iframe {
     width: 100%;
-    height: 800px;
+    height: 600px;
     margin-top: 1rem;
     border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Google Slides specific styling */
+  iframe[src*="presentation"] {
+    height: 500px;
+    min-height: 400px;
+  }
+
+  /* Google Docs specific styling */
+  iframe[src*="document"] {
+    height: 700px;
+    min-height: 500px;
+  }
+
+  /* Responsive iframe container */
+  .iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    margin: 1rem 0;
+  }
+
+  .iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    iframe {
+      height: 400px;
+    }
+    
+    iframe[src*="presentation"] {
+      height: 300px;
+      min-height: 250px;
+    }
+    
+    iframe[src*="document"] {
+      height: 500px;
+      min-height: 350px;
+    }
   }
   
   /* Responsive image styling */
@@ -113,3 +222,228 @@ html, body {
     font-weight: bold;
   }
   
+
+  /* Projects accordion wrapper */
+.projects-wrapper {
+  max-width: 950px;
+  margin: 2rem auto 4rem;
+  padding: 0 1.25rem;
+}
+
+/* Accordion cards */
+details.project {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  margin: 1.25rem 0;
+  overflow: hidden;
+  box-shadow: 0 6px 18px -6px rgba(0,0,0,0.55);
+  transition: border-color .3s, transform .25s;
+}
+
+details.project[open] {
+  border-color: #F5DAFF;
+}
+
+details.project:hover {
+  transform: translateY(-2px);
+}
+
+details.project summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+details.project summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron */
+details.project summary .chevron {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid #F5DAFF;
+  border-bottom: 2px solid #F5DAFF;
+  transform: rotate(45deg);
+  transition: transform .35s;
+  margin-left: 1rem;
+}
+
+details.project[open] summary .chevron {
+  transform: rotate(-135deg);
+}
+
+.project-body {
+  padding: 0 .5rem 1.5rem 1.25rem;
+  animation: fadeIn .35s ease;
+  line-height: 1.55;
+  font-size: 0.98rem;
+}
+
+.project-body h4 {
+  margin: 1.1rem 0 .5rem;
+  font-size: 1.05rem;
+  color: #F5DAFF;
+}
+
+.inline-tags {
+  list-style: none;
+  padding: 0;
+  margin: .4rem 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.inline-tags li {
+  background: rgba(245,218,255,0.15);
+  border: 1px solid rgba(245,218,255,0.35);
+  padding: .35rem .65rem;
+  font-size: .7rem;
+  letter-spacing: .5px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  color: rgba(245,218,255,0.9);
+  font-weight: 500;
+}
+
+.grid-2 {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  margin-top: .75rem;
+}
+
+.project-body img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px -4px rgba(0,0,0,0.6);
+  object-fit: cover;
+}
+
+/* Ensure inline project videos match image styling */
+.project-body .project-video {
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px -4px rgba(0,0,0,0.6);
+  object-fit: cover;
+  margin: 1rem auto;
+}
+
+/* Right-floated video for specific projects */
+.project-body .project-video.right-float {
+  width: 350px;
+  float: right;
+  margin: 0 0 1rem 1.5rem;
+}
+
+/* Clearfix for containers with floated elements */
+.project-body::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Project link buttons */
+.project-links {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin: .5rem 0 1rem;
+}
+
+.project-body a.btn-link {
+  display: inline-flex;
+  align-items: center;
+  padding: .5rem .9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #2F2235;
+  text-decoration: none;
+  background: rgba(255,255,255,0.85);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px -4px rgba(0,0,0,.4);
+  transition: transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.project-body a.btn-link:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.95);
+  border-color: rgba(255,255,255,0.5);
+  color: #2F2235;
+  box-shadow: 0 4px 12px -4px rgba(0,0,0,.6);
+}
+
+.project-body a.btn-link.secondary {
+  background: rgba(255,255,255,0.7);
+  border-color: rgba(255,255,255,0.2);
+  color: #3F3244;
+}
+
+.project-body a.btn-link.secondary:hover {
+  background: rgba(255,255,255,0.8);
+  border-color: rgba(255,255,255,0.35);
+  color: #2F2235;
+}
+
+/* Final thoughts styling */
+.final-thoughts {
+  background: rgba(245, 218, 255, 0.05);
+  border-left: 3px solid rgba(245, 218, 255, 0.3);
+  padding: 1rem 1.2rem;
+  margin: 0.8rem 0;
+  border-radius: 0 8px 8px 0;
+  line-height: 1.6;
+}
+
+.final-thoughts p {
+  margin: 0.6rem 0;
+}
+
+.final-thoughts p:first-child {
+  margin-top: 0;
+}
+
+.final-thoughts p:last-child {
+  margin-bottom: 0;
+}
+
+.final-thoughts ul {
+  margin: 0.5rem 0 0.8rem 0;
+  padding-left: 1.5rem;
+}
+
+.final-thoughts li {
+  margin-bottom: 0.4rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Project year tag styling */
+.project-year-tag {
+  background: rgba(245, 218, 255, 0.2);
+  color: #F5DAFF;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+  border: 1px solid rgba(245, 218, 255, 0.3);
+}

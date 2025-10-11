@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>High School Projects</title>
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="Thermoelectric Cooler.html">Thermoelectric AC</a>
+    <a href="HSProjects.html">HS Projects</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <header>
+    <h1>High School Projects</h1>
+    <p>This page contains <u>some</u> of my highschool projects throughout high school! A lot of these are fundamental projects that helped me apply the general basics
+    of programming that I've learned, taking something new and completely adapting and building upon it!</p>
+  </header>
+
+  <div class="projects-wrapper">
+    <!-- GIF Cycle Project -->
+    <details class="project">
+      <summary>
+        <span>GIF TFT Cycle Project <span class="project-year-tag">July 2023</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p> Task: Use a TFT Display to display and cycle through 3 different GIFS with a button </p>
+        <h4>Goals</h4>
+        <ul>
+          <li>Understand how Images Display / Render (Used image to C command line tools)</li>
+          <li>Get use to using display libraries for TFTs</li>
+          <li>Expirement with what I can do by adding a button scroll function for the GIFs</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Adafruit ESP32-S2 TFT Feather</li>
+        </ul>
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/GIFCycle-for-ESP32-TFT-Displays" target="_blank" rel="noopener">View Code on GitHub</a>
+          <a class="btn-link secondary" href="https://adaoh3.blogspot.com/2023/07/cycle-gifs-with-arduino-and-tft-display.html" target="_blank" rel="noopener">Read Project Blog</a>
+        </div>
+        <h4>Final Thoughts</h4>
+        <div class="final-thoughts">
+          <p>Although the code is very messy, I learnt a lot about the process of looking at uknown libraries and figuring out how to use their interface.</p>
+          
+          <p><strong>Two things I would do better going back:</strong></p>
+          <ul>
+            <li>Clean up the code and make it wayyy more readable</li>
+            <li>Tie the button press switch to an interrupt pin instead of polling it in the loop</li>
+          </ul>
+
+          <p>The loop polling works, however, there is a slight delay when pressing the button to change the image.</p>
+        </div>
+        <video class="project-video" src="/images/hsProjImages/JettScroll.mp4" autoplay loop muted playsinline></video>
+      </div>
+    </details>
+
+    <!-- Rhythm Game Controller -->
+    <details class="project">
+      <summary>
+        <span>Rhythm Game Controller Build <span class="project-year-tag">September 2023</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p> Task: Build a budget friendly rhythm game controller (The usual ones average around $188!!) </p>
+        <img class="project-video right-float" src="images/hsProjImages/rhythmGame.gif" alt="Rhythm Game Controller Demo">
+        <h4>Goals</h4>
+        <ul>
+          <li>Understand the electronics behind a controller</li>
+          <li>Understand button interrupts and debouncing</li>
+          <li>Understand how a rotary encoder works and how can be used to move mouse position for software with a microcontroller</li>
+          <li>Alter and mess around code to get controller to have a mode switching function for different software's reading input</li>
+          <li>Fully build and execute first big project!</li>
+        </ul>
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>Soldering</li>
+          <li>How to Crimp + Learn what is a Daisy Chain</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Arduino Leonardo</li>
+          <li>No Detent Rotary Encoders x2</li>
+          <li>Beatmania Arcade Buttons (Repurposed)</li>
+          <li>SDVX DIY Knob</li>
+        </ul>
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/modifiedControllerCode/blob/main/src/main.cpp" target="_blank" rel="noopener">View Code on GitHub</a>
+          <a class="btn-link secondary" href="https://adaoh3.blogspot.com/2023/09/diy-arcade-rythm-game-controller.html" target="_blank" rel="noopener">Read Project Blog</a>
+          <a class="btn-link secondary" href="https://consandstuff.github.io/rhythmcons/sound-voltex/sdvx-normal/" target="_blank" rel="noopener">CONS&STUFF Guide (Adapted Project from this Guide)</a>
+        </div>
+        <h4>Final Thoughts</h4>     
+        <div class="final-thoughts">
+          <p> This was one of my most favorite projects since it was the first biggest step I had ever taken toward building and working with custom hardware. I was so scared
+            that I would have purchased incompatible parts, or I would mess up the soldering (which I did do a few times), and would never finish this project. However, after a lot of trial and error, 
+            I managed to get everything working and it was such a rewarding experience!  
+          </p>
+          
+          <p><strong>If I were to go back:</strong></p>
+          <ul>
+            <li>Would have used wire crimps instead of alligator clips. The fact that I used alligator clips is silly (made wiring a mess), but was worried I would do 
+              something wrong with crimps. Thankfully comfortable with using them now</li>
+          </ul>
+
+          <p>The loop polling works, however, there is a slight delay when pressing the button to change the image.</p>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</body>
+</html>
