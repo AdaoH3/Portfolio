@@ -115,5 +115,23 @@
     </details>
 
   </div>
+
+  <script>
+    // Make accordion exclusive - only one project open at a time
+    const projectDetails = document.querySelectorAll('details.project');
+    
+    projectDetails.forEach((detail) => {
+      detail.addEventListener('toggle', () => {
+        if (detail.open) {
+          // Close all other project details when one is opened
+          projectDetails.forEach((otherDetail) => {
+            if (otherDetail !== detail) {
+              otherDetail.open = false;
+            }
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
