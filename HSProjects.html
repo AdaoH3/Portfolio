@@ -108,12 +108,138 @@
             <li>Would have used wire crimps instead of alligator clips. The fact that I used alligator clips is silly (made wiring a mess), but was worried I would do 
               something wrong with crimps. Thankfully comfortable with using them now</li>
           </ul>
-
-          <p>The loop polling works, however, there is a slight delay when pressing the button to change the image.</p>
         </div>
       </div>
     </details>
 
+    <!-- API TFT Display -->
+    <details class="project">
+      <summary>
+        <span>Quaver Achievement Fetch on TFT (API)<span class="project-year-tag">December 2023</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p> Task: Tft display that fetches rhythm game data from Quaver API and displays my achievements. 
+        </p>
+        <img class="project-video right-float" src="images/hsProjImages/tftGif.gif" alt="Rhythm Game Controller Demo">
+        <h4>Goals</h4>
+        <ul>
+          <li>Understand what an API is</li>
+          <li>Understand how to use APIs from a specific source (POSTMAN)</li>
+          <li>Understand how to use WiFi on an ESP32-S2 to fetch this data</li>
+          <li>Understand TFT refreshing and getting more comfortable with the display library</li>
+        </ul>
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>API usage and WiFi basics for microcontrollers</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Adafruit ESP32-S2 TFT Feather</li>
+        </ul>
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/APIwTFT/tree/main" target="_blank" rel="noopener">View Code on GitHub</a>
+          <a class="btn-link secondary" href="https://adaoh3.blogspot.com/2023/12/get-your-favorite-stats-updated.html" target="_blank" rel="noopener">Read Project Blog</a>
+          <a class="btn-link secondary" href="https://wiki.quavergame.com/docs/api-v2" target="_blank" rel="noopener">Quaver API Reference</a>
+        </div>
+        <h4>Final Thoughts</h4>     
+        <div class="final-thoughts">
+          <p> These skills definentely became critical in later projects where I needed to fetch data from other interfaces
+            such as AdafruitIO and local servers. I also got more comfortable with the TFT display library and how to render text on the screen.
+          </p>
+          
+          <p><strong>If I were to go back:</strong></p>
+          <ul>
+            <li>With the experience now, I would've messed around a little more with the TFT display library and get my username
+              and profile picutre to display on the screen as well (I was having trouble with this at the time)
+            </li>
+            <li> Would've handeled the screen referesh better. When fetching data from the API, the number is blacked out on the 
+              screen. I would have waited for the API to first recieve data before refereshing the screen so the screen doesn't have to 
+              empty itself first. 
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+    <!-- CodexScope -->
+    <details class="project">
+      <summary>
+        <span>CodexScope Learning Board<span class="project-year-tag">January-March 2024</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p> Task: Develop a learning board for microcontrollers and TFT displays</p>
+        <i>IMPORTANT: This project was not fully finished, however it was useful in figuring out content for CircuitCharm
+          and teaching electronic basics while also reviewing my current understanding of electronics. 
+        </i>
+        <img class="project-video right-float" src="images/hsProjImages/CodexScopeManual.png" alt="CodexScope Manual">
+        <h4>Goals</h4>
+        <ul>
+          <li>Understand how I would want to learn electronics if I could start again to develop a good learning device</li>
+          <li>Design the device</li>
+          <li>Make a manual laying out how to use it</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Raspberry Pi Pico WH</li>
+          <li>TFT Driver Board</li>
+          <li>Large TFT Display</li>
+        </ul>
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://www.canva.com/design/DAGDMwLlIXk/HyX6laXIq7LjiRrjdqwt5Q/edit?utm_content=DAGDMwLlIXk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener">Manual made on Canva</a>
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/picodisp/tree/main" target="_blank" rel="noopener">Arcade Game Demo Code</a>
+        </div>
+        <h4>Final Thoughts</h4>
+        <div class="final-thoughts">
+          <p>Although I didn't get to finish the full project and manual, the experience gained helped me format some of the 
+            curriculum for Tech Club and CircuitCharm.
+          </p>
+          
+          <p><strong>Two things I would do better going back:</strong></p>
+          <ul>
+            <li>Create a more organzied project plan (was kind of figuring it out as I go)</li>
+            <i>TFT screen got cracked twice through travel, stopped the project after since cost for part is high and was a 
+              large time time setback.
+            </i>
+          </ul>
+
+          <p><strong>If I were to continue this project:</strong></p>
+          <ul>
+            <li>Complete the interactive software tutorials on the TFT display</li>
+            <li>Add more sensor modules and expansion options</li>
+          </ul>
+        </div>
+        
+        <h4>Photo Gallery</h4>
+        <div class="project-gallery">
+          <div class="gallery-item">
+            <img src="images/hsProjImages/ArcadeGame1.gif" alt="Soldering and Assembly Process">
+            <div class="image-caption">Demo Arcade Timing Game</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/hsProjImages/ArcadeGame2.gif" alt="Soldering and Assembly Process">
+            <div class="image-caption">Demo Random Timing Game (Press on blue = win)</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/hsProjImages/codexScope.jpeg" alt="CodexScope Learning Board - Complete Setup">
+            <div class="image-caption">Original circuit schematic for CodexScope (Voltage booster was removed, found a driver board that
+              works off of 3.3V directly).
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/hsProjImages/3DPrintCase.jpeg" alt="3D Printed Enclosure">
+            <div class="image-caption">Custom 3D enclosure for the learning board made on OnShape</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/hsProjImages/SolderCodex.jpg" alt="Soldering and Assembly Process">
+            <div class="image-caption">Soldering components together</div>
+          </div>
+        </div>
+      </div>
+    </details>
   </div>
 
   <script>
