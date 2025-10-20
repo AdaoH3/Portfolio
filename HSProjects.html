@@ -6,6 +6,129 @@
   <title>High School Projects</title>
   <link rel="stylesheet" href="style2.css">
   <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+  <style>
+    .terminal-container {
+      background: #1e1e1e;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+      color: #00ff00;
+      border: 2px solid #333;
+    }
+    
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #333;
+    }
+    
+    .terminal-title {
+      color: #ffffff;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    
+    .terminal-buttons {
+      display: flex;
+      gap: 5px;
+    }
+    
+    .terminal-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    .btn-close { background: #ff5f57; }
+    .btn-minimize { background: #ffbd2e; }
+    .btn-maximize { background: #28ca42; }
+    
+    .terminal-output {
+      background: #000;
+      padding: 15px;
+      border-radius: 4px;
+      min-height: 200px;
+      max-height: 400px;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    
+    .terminal-input-container {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .terminal-prompt {
+      color: #00ff00;
+      margin-right: 5px;
+    }
+    
+    .terminal-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      outline: none;
+      caret-color: #00ff00;
+    }
+    
+    .terminal-input::after {
+      content: '▋';
+      color: #00ff00;
+      animation: blink 1s infinite;
+      margin-left: 2px;
+    }
+    
+    @keyframes blink {
+      0%, 50% {
+        opacity: 1;
+      }
+      51%, 100% {
+        opacity: 0;
+      }
+    }
+    
+    .command-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
+    }
+    
+    .command-btn {
+      background: #333;
+      color: #00ff00;
+      border: 1px solid #555;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      transition: background-color 0.2s;
+    }
+    
+    .command-btn:hover {
+      background: #555;
+    }
+    
+    .loading-text {
+      color: #ffbd2e;
+      font-style: italic;
+    }
+    
+    .error-text {
+      color: #ff5f57;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -186,6 +309,8 @@
           <li>Raspberry Pi Pico WH</li>
           <li>TFT Driver Board</li>
           <li>Large TFT Display</li>
+          <li>Piezo Buzzer</li>
+          <li>Arcade Button</li>
         </ul>
         <h4>Docs/Code</h4>
         <div class="project-links">
@@ -240,9 +365,347 @@
         </div>
       </div>
     </details>
+
+    <!-- SkillTree Management System -->
+    <details class="project">
+      <summary>
+        <span>SkillTree Management System <span class="project-year-tag">October 2025</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p>C++ terminal script. Sample version uses JS and manages tasks randomizing the selection of uncompleted tasks.</p>
+        <i>NOTE: The simulation version doesn NOT run off of original C++ code 
+          Original runs off of Replit under a simulator enviornment.
+        </i>
+        <h4>Features</h4>
+        <ul>
+          <li>Task dependency management (prerequisites system)</li>
+          <li>Random task selection by category</li>
+          <li>Progress tracking and completion marking using filesave</li>
+          <li>Categories: Projects, Skills, Studies, Workout</li>
+        </ul>
+
+        <h4>Technologies Used</h4>
+        <ul class="inline-tags">
+          <li>C++</li>
+          <li>JS (Web Simulator)</li>
+        </ul>
+
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+        <a class="btn-link secondary" href="https://github.com/AdaoH3/skillAchieveTree/tree/main" target="_blank" rel="noopener">View Original Code on GitHub</a>
+        </div>
+
+        <!-- Terminal Interface -->
+        <div class="terminal-container">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <div class="terminal-btn btn-close"></div>
+              <div class="terminal-btn btn-minimize"></div>
+              <div class="terminal-btn btn-maximize"></div>
+            </div>
+            <div class="terminal-title">SkillTree Terminal</div>
+          </div>
+          
+          <div class="command-buttons">
+            <button class="command-btn" onclick="executeQuickCommand('help')">Help</button>
+            <button class="command-btn" onclick="executeQuickCommand('list')">List</button>
+            <button class="command-btn" onclick="clearTerminal()">Clear</button>
+          </div>
+          
+          <div class="terminal-output" id="terminal-output">
+            <span class="loading-text">SkillTree Prototype Ready!</span>
+          </div>
+          
+          <div class="terminal-input-container">
+            <span class="terminal-prompt">skilltree$</span>
+            <input type="text" class="terminal-input" id="terminal-input" placeholder="Type 'help' for commands..." onkeypress="handleInput(event)">
+          </div>
+        </div>
+
+        <h4>How to Use</h4>
+        <div class="final-thoughts">
+          <p><strong>Available Commands:</strong></p>
+          <ul>
+            <li><code>help</code> - Show all available commands</li>
+            <li><code>list</code> - Show all available tasks</li>
+            <li><code>roll [projects] [skills] [studies]</code> - Get random tasks (e.g., "roll 2 1 1")</li>
+            <li><code>done [task_name]</code> - Mark a task as completed (browser version does not store memory)</li>
+            <li><code>clear</code> - Clear the terminal output</li>
+          </ul>
+          
+          <p><strong>Example Usage:</strong></p>
+          <ul>
+            <li>Type <code>roll 2 1 1</code> to get 2 projects, 1 skill, and 1 study task</li>
+            <li>Type <code>done Github And Git</code> to mark a task as completed</li>
+            <li>Completed tasks won't appear in future rolls </li>
+          </ul>
+          
+          <p><strong>Note:</strong> This is a simplified prototype. For the full version with persistent storage, dependency management, and progress tracking, visit the GitHub repository.</p>
+        </div>
+
+        <h4>Project Architecture</h4>
+        <div class="final-thoughts">
+          <p>This prototype demonstrates:</p>
+          <ul>
+            <li><strong>Random task selection</strong> by category</li>
+            <li><strong>Clean command-line interface</strong> design</li>
+          </ul>
+          
+          <p><strong>Full Version Features:</strong></p>
+          <ul>
+            <li>Object-oriented design with Task and SkillTree classes</li>
+            <li>Task dependency management (prerequisites system)</li>
+            <li>Persistent progress storage using txt file storage</li>
+          </ul>
+        </div>
+      </div>
+    </details>
   </div>
 
   <script>
+    let skillTreeReady = false;
+
+    // Simple prototype SkillTree - no storage, just core functionality
+    function createSimpleSkillTree() {
+      // Track completed tasks in memory only (resets on page reload)
+      let completedTasks = [];
+
+      // All available tasks
+      const allTasks = {
+        projects: [
+          'Codex Scope DIY Manual',
+          'Dragon Kim Workshops', 
+          'School Club Improvements',
+          'Codex Scope Demo Product',
+          'Clock Countdown'
+        ],
+        skills: [
+          'Github And Git',
+          'Linux',
+          'Unity Basics',
+          'Graphics Library',
+          'Learn Electron',
+          'Serial Transmit',
+          'Serial Transmit And Receive',
+          'Bash Scripting',
+          'Raspberry Pi',
+          'Web Portfolio'
+        ],
+        studies: [
+          'SAT Math',
+          'SAT Reading',
+          'AMC Math',
+          'Driver Test'
+        ],
+        workouts: [
+          'Chest Workout',
+          'Tricep Workout',
+          'Shoulder And Back Workout',
+          'Leg And Forearm Workout'
+        ]
+      };
+
+      return function(command) {
+        const parts = command.trim().split(' ');
+        const cmd = parts[0].toLowerCase();
+        
+        if (cmd === 'help') {
+          return `Available commands:
+  help - Show this help message
+  list - Show all available tasks
+  roll [projects] [skills] [studies] - Get random tasks
+  done [task_name] - Mark task as completed (session only)
+  clear - Clear the terminal
+
+Example: roll 2 1 1 (gets 2 projects, 1 skill, 1 study)
+
+Note: This is a simplified prototype. Completed tasks reset on page reload.
+For the full version with persistent storage, visit the GitHub repository.`;
+        
+        } else if (cmd === 'list') {
+          let result = 'AVAILABLE TASKS:\n\n';
+          
+          Object.entries(allTasks).forEach(([category, tasks]) => {
+            const availableTasks = tasks.filter(task => !completedTasks.includes(task));
+            if (availableTasks.length > 0) {
+              const categoryName = category.toUpperCase();
+              result += `${categoryName}:\n`;
+              availableTasks.forEach(task => {
+                result += `- ${task}\n`;
+              });
+              result += '\n';
+            }
+          });
+          
+          if (completedTasks.length > 0) {
+            result += `COMPLETED THIS SESSION: ${completedTasks.join(', ')}`;
+          }
+          
+          return result.trim();
+        
+        } else if (cmd === 'roll') {
+          const projects = parseInt(parts[1]) || 0;
+          const skills = parseInt(parts[2]) || 0;
+          const studies = parseInt(parts[3]) || 0;
+          
+          let result = 'RECOMMENDED TASKS:\n\n';
+          let hasAnyTasks = false;
+          
+          if (projects > 0) {
+            const availableProjects = allTasks.projects.filter(task => !completedTasks.includes(task));
+            if (availableProjects.length > 0) {
+              result += 'PROJECTS:\n';
+              for (let i = 0; i < Math.min(projects, availableProjects.length); i++) {
+                const randomTask = availableProjects[Math.floor(Math.random() * availableProjects.length)];
+                result += `- ${randomTask}\n`;
+                availableProjects.splice(availableProjects.indexOf(randomTask), 1);
+              }
+              result += '\n';
+              hasAnyTasks = true;
+            }
+          }
+          
+          if (skills > 0) {
+            const availableSkills = allTasks.skills.filter(task => !completedTasks.includes(task));
+            if (availableSkills.length > 0) {
+              result += 'SKILLS:\n';
+              for (let i = 0; i < Math.min(skills, availableSkills.length); i++) {
+                const randomTask = availableSkills[Math.floor(Math.random() * availableSkills.length)];
+                result += `- ${randomTask}\n`;
+                availableSkills.splice(availableSkills.indexOf(randomTask), 1);
+              }
+              result += '\n';
+              hasAnyTasks = true;
+            }
+          }
+          
+          if (studies > 0) {
+            const availableStudies = allTasks.studies.filter(task => !completedTasks.includes(task));
+            if (availableStudies.length > 0) {
+              result += 'STUDIES:\n';
+              for (let i = 0; i < Math.min(studies, availableStudies.length); i++) {
+                const randomTask = availableStudies[Math.floor(Math.random() * availableStudies.length)];
+                result += `- ${randomTask}\n`;
+                availableStudies.splice(availableStudies.indexOf(randomTask), 1);
+              }
+              result += '\n';
+              hasAnyTasks = true;
+            }
+          }
+          
+          // Always include one workout (only if at least one other category was requested)
+          if (hasAnyTasks) {
+            const availableWorkouts = allTasks.workouts.filter(task => !completedTasks.includes(task));
+            if (availableWorkouts.length > 0) {
+              result += 'WORKOUTS:\n';
+              const randomWorkout = availableWorkouts[Math.floor(Math.random() * availableWorkouts.length)];
+              result += `- ${randomWorkout}\n`;
+            }
+          }
+          
+          return result.trim() || 'No tasks requested. Use: roll [projects] [skills] [studies]';
+          
+        } else if (cmd === 'done') {
+          const taskName = command.substring(5).trim().replace(/['"]/g, '');
+          
+          // Check if task exists
+          const allTasksList = Object.values(allTasks).flat();
+          if (!allTasksList.includes(taskName)) {
+            return `Error: Could not find task '${taskName}'.\nUse exact task names from the roll results.`;
+          }
+          
+          if (!completedTasks.includes(taskName)) {
+            completedTasks.push(taskName);
+            return `✓ Marked '${taskName}' as completed!\nThis task will no longer appear in roll results.`;
+          } else {
+            return `Task '${taskName}' is already completed.`;
+          }
+          
+        } else {
+          return `Unknown command: '${cmd}'\nType 'help' for available commands.`;
+        }
+      };
+    }
+
+    // SkillTree functions
+    function appendToTerminal(text, type = 'normal') {
+      const output = document.getElementById('terminal-output');
+      if (!output) return; // Safety check
+      
+      const span = document.createElement('span');
+      
+      if (type === 'error') {
+        span.className = 'error-text';
+      } else if (type === 'loading') {
+        span.className = 'loading-text';
+      }
+      
+      span.textContent = text + '\n';
+      output.appendChild(span);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    function executeCommand(command) {
+      if (!skillTreeReady) {
+        appendToTerminal('Error: SkillTree not ready yet. Please wait...', 'error');
+        return;
+      }
+
+      // Handle clear command directly
+      if (command.trim().toLowerCase() === 'clear') {
+        clearTerminal();
+        return;
+      }
+
+      appendToTerminal(`skilltree$ ${command}`);
+      
+      try {
+        const skillTreeFunction = createSimpleSkillTree();
+        const result = skillTreeFunction(command);
+        appendToTerminal(result);
+      } catch (error) {
+        appendToTerminal(`Error executing command: ${error.message}`, 'error');
+      }
+    }
+
+    function executeQuickCommand(command) {
+      executeCommand(command);
+    }
+
+    function handleInput(event) {
+      if (event.key === 'Enter') {
+        const input = document.getElementById('terminal-input');
+        if (!input) return; // Safety check
+        
+        const command = input.value.trim();
+        
+        if (command) {
+          executeCommand(command);
+          input.value = '';
+        }
+      }
+    }
+
+    function clearTerminal() {
+      const output = document.getElementById('terminal-output');
+      if (output) {
+        output.innerHTML = '';
+      }
+    }
+
+    // Initialize when page loads
+    window.addEventListener('DOMContentLoaded', function() {
+      // Initialize SkillTree
+      skillTreeReady = true;
+      const output = document.getElementById('terminal-output');
+      if (output) {
+        output.innerHTML = '';
+        appendToTerminal('SkillTree Prototype Ready!', 'success');
+        appendToTerminal('Type "help" to see available commands.\n', 'info');
+      }
+    });
+
     // Make accordion exclusive - only one project open at a time
     const projectDetails = document.querySelectorAll('details.project');
     
