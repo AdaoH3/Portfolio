@@ -369,7 +369,7 @@
     <!-- SkillTree Management System -->
     <details class="project">
       <summary>
-        <span>SkillTree Management System <span class="project-year-tag">October 2025</span></span>
+        <span>SkillTree Management System <span class="project-year-tag">June 2024</span></span>
         <span class="chevron" aria-hidden="true"></span>
       </summary>
       <div class="project-body">
@@ -381,8 +381,14 @@
         <ul>
           <li>Task dependency management (prerequisites system)</li>
           <li>Random task selection by category</li>
-          <li>Progress tracking and completion marking using filesave</li>
+          <li>Progress tracking and completion marking using a saving and parsing system on a saveState file.</li>
           <li>Categories: Projects, Skills, Studies, Workout</li>
+        </ul>
+
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>Application of OOP from Computer Science A class</li>
+          <li>Basics on how file saves work and how data is parsed</li>
         </ul>
 
         <h4>Technologies Used</h4>
@@ -395,6 +401,8 @@
         <div class="project-links">
         <a class="btn-link secondary" href="https://github.com/AdaoH3/skillAchieveTree/tree/main" target="_blank" rel="noopener">View Original Code on GitHub</a>
         </div>
+
+        <img class="project-video" src="images/hsProjImages/skillTree.png" alt="SkillTree Image">
 
         <!-- Terminal Interface -->
         <div class="terminal-container">
@@ -436,12 +444,13 @@
           
           <p><strong>Example Usage:</strong></p>
           <ul>
-            <li>Type <code>roll 2 1 1</code> to get 2 projects, 1 skill, and 1 study task</li>
+            <li>Type <code>roll 2 1 1</code> to get 2 projects, 1 skill, 1 study task, and a mandatory workout type</li>
             <li>Type <code>done Github And Git</code> to mark a task as completed</li>
             <li>Completed tasks won't appear in future rolls </li>
           </ul>
           
-          <p><strong>Note:</strong> This is a simplified prototype. For the full version with persistent storage, dependency management, and progress tracking, visit the GitHub repository.</p>
+          <p><strong>Note:</strong> This is a simplified prototype. For the full version with file-save based storage with task tracking, visit the GitHub repository. Original code worked on terminal on replit, however since 
+          Replit moved to a premium service for publishing, the working version is not able to be used without me paying for a subscription. </p>
         </div>
 
         <h4>Project Architecture</h4>
@@ -458,6 +467,73 @@
             <li>Task dependency management (prerequisites system)</li>
             <li>Persistent progress storage using txt file storage</li>
           </ul>
+        </div>
+      </div>
+    </details>
+    <details class="project">
+      <summary>
+        <span>HackNight Project Pomodoro Quest <span class="project-year-tag">June 2024</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p>Prompt: Life often requires us to juggle side quests alongside main objectives. Create a project that
+          emphasizes one of these "side-quests".
+        <i>Context: 60 people competition in BB&N with teams of 2-4. This was a 24 hour competition.</i>
+        </p>
+        <img class="project-video right-float" src="images/hsProjImages/CloseUpHackathon.jpg" alt="CodexScope Manual">
+        <h4>Goals</h4>
+        <ul>
+          <li>Brainstorm ideas for prompt</li>
+          <li>Create a project plan (What both of us should priortize)</li>
+          <li>Crllect (teamate) -> App Dev for interface with hardware timer</li>
+          <li>Me -> Hardware project dealing with recieving time from app, displaying it, and indicating end</li>
+          <li>Develop protocol to communicate between app and hardware controller through Adafruit API</li>
+        </ul>
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>Messed around with different ways and protocols to communicate from controller to app <i>Tried serial and a few different ways to communicate time</i></li>
+          <li>First team project for engineering! Met some really cool people and made a new friend!</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Adafruit ESP32-S2 TFT Reverse Feather</li>
+          <li>Adafruit IO API</li>
+        </ul>
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/HacKnightProj/tree/main" target="_blank" rel="noopener">GitHub: My Part (Hardware Technical Explanation in README)</a>
+          <a class="btn-link secondary" href=" https://github.com/crllect/hacknight/tree/main" target="_blank" rel="noopener">Github: Crllect's Part (App integration with ChatGPT) </a>
+        </div>
+        <h4>Final Thoughts</h4>     
+        <div class="final-thoughts">
+          <p> This was a really good capstone project for skills built up from microcontrollers with APIs, TFT display graphics, and timer/millis functionality. When
+          went to Boston for this hackathon got really inspired by others and like minded interested high schoolers!
+          </p>
+          
+          <p><strong>If I were to go back:</strong></p>
+          <ul>
+            <li>I originally was trying to get the project done with USB data transfer (Serial), however getting it to work with the app itself when talking with 
+              crllct was a pain to handle in the moment. Would've skipped this part and gone straight to bluetooth to have more time for other features.
+            </li>
+            <li>After Serial shenanigans, did not have time to implement bluetooth functionality (more realistic for users with multiple devices), so going back would have definently focussed on that.
+            </li>
+            <li> Going back with bluetooth, would have also convinced Crllct to build app in using Expo Go so we could use bluetooth between app and server easy.</li>
+          </ul>
+        </div>
+        <h4>Photo Gallery</h4>
+        <div class="project-gallery">
+          <div class="gallery-item">
+            <img src="images/hsProjImages/hackathonFull.jpg" alt="Soldering and Assembly Process">
+            <div class="image-caption">Hackathon Table (Included our and a few other teams)</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/hsProjImages/hackathonPortrait.jpg" alt="Soldering and Assembly Process">
+            <div class="image-caption">Me and Crllct (This was after 2 hrs of sleep in the 24 hr hackathon, face a little demented lol)</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/hsProjImages/projectFocusHackathon.jpg" alt="3D Printed Enclosure">
+            <div class="image-caption">Project demo photo</div>
+          </div>
         </div>
       </div>
     </details>
@@ -518,7 +594,8 @@
   done [task_name] - Mark task as completed (session only)
   clear - Clear the terminal
 
-Example: roll 2 1 1 (gets 2 projects, 1 skill, 1 study)
+Example: roll 2 1 1 (gets 2 projects, 1 skill, 1 study,)
+Workout type always included.
 
 Note: This is a simplified prototype. Completed tasks reset on page reload.
 For the full version with persistent storage, visit the GitHub repository.`;
@@ -628,7 +705,6 @@ For the full version with persistent storage, visit the GitHub repository.`;
       };
     }
 
-    // SkillTree functions
     function appendToTerminal(text, type = 'normal') {
       const output = document.getElementById('terminal-output');
       if (!output) return; // Safety check
