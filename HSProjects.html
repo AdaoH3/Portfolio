@@ -541,168 +541,170 @@
 
   <script>
     let skillTreeReady = false;
+    let completedTasks = []; // Move this to global scope to persist between commands
 
-    // Simple prototype SkillTree - no storage, just core functionality
-    function createSimpleSkillTree() {
-      // Track completed tasks in memory only (resets on page reload)
-      let completedTasks = [];
+    // All available tasks - move to global scope
+    const allTasks = {
+      projects: [
+        'Codex Scope DIY Manual',
+        'Dragon Kim Workshops', 
+        'School Club Improvements',
+        'Codex Scope Demo Product',
+        'Clock Countdown'
+      ],
+      skills: [
+        'Github And Git',
+        'Linux',
+        'Unity Basics',
+        'Graphics Library',
+        'Learn Electron',
+        'Serial Transmit',
+        'Serial Transmit And Receive',
+        'Bash Scripting',
+        'Raspberry Pi',
+        'Web Portfolio'
+      ],
+      studies: [
+        'SAT Math',
+        'SAT Reading',
+        'AMC Math',
+        'Driver Test'
+      ],
+      workouts: [
+        'Chest Workout',
+        'Tricep Workout',
+        'Shoulder And Back Workout',
+        'Leg And Forearm Workout'
+      ]
+    };
 
-      // All available tasks
-      const allTasks = {
-        projects: [
-          'Codex Scope DIY Manual',
-          'Dragon Kim Workshops', 
-          'School Club Improvements',
-          'Codex Scope Demo Product',
-          'Clock Countdown'
-        ],
-        skills: [
-          'Github And Git',
-          'Linux',
-          'Unity Basics',
-          'Graphics Library',
-          'Learn Electron',
-          'Serial Transmit',
-          'Serial Transmit And Receive',
-          'Bash Scripting',
-          'Raspberry Pi',
-          'Web Portfolio'
-        ],
-        studies: [
-          'SAT Math',
-          'SAT Reading',
-          'AMC Math',
-          'Driver Test'
-        ],
-        workouts: [
-          'Chest Workout',
-          'Tricep Workout',
-          'Shoulder And Back Workout',
-          'Leg And Forearm Workout'
-        ]
-      };
-
-      return function(command) {
-        const parts = command.trim().split(' ');
-        const cmd = parts[0].toLowerCase();
-        
-        if (cmd === 'help') {
-          return `Available commands:
+    // Simple prototype SkillTree - simplified to just process commands
+    function processSkillTreeCommand(command) {
+      const parts = command.trim().split(' ');
+      const cmd = parts[0].toLowerCase();
+      
+      if (cmd === 'help') {
+        return `Available commands:
   help - Show this help message
   list - Show all available tasks
   roll [projects] [skills] [studies] - Get random tasks
   done [task_name] - Mark task as completed (session only)
   clear - Clear the terminal
 
-Example: roll 2 1 1 (gets 2 projects, 1 skill, 1 study,)
+Example: roll 2 1 1 (gets 2 projects, 1 skill, 1 study)
 Workout type always included.
 
 Note: This is a simplified prototype. Completed tasks reset on page reload.
 For the full version with persistent storage, visit the GitHub repository.`;
+      
+      } else if (cmd === 'list') {
+        let result = 'AVAILABLE TASKS:\n\n';
         
-        } else if (cmd === 'list') {
-          let result = 'AVAILABLE TASKS:\n\n';
-          
-          Object.entries(allTasks).forEach(([category, tasks]) => {
-            const availableTasks = tasks.filter(task => !completedTasks.includes(task));
-            if (availableTasks.length > 0) {
-              const categoryName = category.toUpperCase();
-              result += `${categoryName}:\n`;
-              availableTasks.forEach(task => {
-                result += `- ${task}\n`;
-              });
-              result += '\n';
-            }
-          });
-          
-          if (completedTasks.length > 0) {
-            result += `COMPLETED THIS SESSION: ${completedTasks.join(', ')}`;
+        Object.entries(allTasks).forEach(([category, tasks]) => {
+          const availableTasks = tasks.filter(task => !completedTasks.includes(task));
+          if (availableTasks.length > 0) {
+            const categoryName = category.toUpperCase();
+            result += `${categoryName}:\n`;
+            availableTasks.forEach(task => {
+              result += `- ${task}\n`;
+            });
+            result += '\n';
           }
-          
-          return result.trim();
+        });
         
-        } else if (cmd === 'roll') {
-          const projects = parseInt(parts[1]) || 0;
-          const skills = parseInt(parts[2]) || 0;
-          const studies = parseInt(parts[3]) || 0;
-          
-          let result = 'RECOMMENDED TASKS:\n\n';
-          let hasAnyTasks = false;
-          
-          if (projects > 0) {
-            const availableProjects = allTasks.projects.filter(task => !completedTasks.includes(task));
-            if (availableProjects.length > 0) {
-              result += 'PROJECTS:\n';
-              for (let i = 0; i < Math.min(projects, availableProjects.length); i++) {
-                const randomTask = availableProjects[Math.floor(Math.random() * availableProjects.length)];
-                result += `- ${randomTask}\n`;
-                availableProjects.splice(availableProjects.indexOf(randomTask), 1);
-              }
-              result += '\n';
-              hasAnyTasks = true;
-            }
-          }
-          
-          if (skills > 0) {
-            const availableSkills = allTasks.skills.filter(task => !completedTasks.includes(task));
-            if (availableSkills.length > 0) {
-              result += 'SKILLS:\n';
-              for (let i = 0; i < Math.min(skills, availableSkills.length); i++) {
-                const randomTask = availableSkills[Math.floor(Math.random() * availableSkills.length)];
-                result += `- ${randomTask}\n`;
-                availableSkills.splice(availableSkills.indexOf(randomTask), 1);
-              }
-              result += '\n';
-              hasAnyTasks = true;
-            }
-          }
-          
-          if (studies > 0) {
-            const availableStudies = allTasks.studies.filter(task => !completedTasks.includes(task));
-            if (availableStudies.length > 0) {
-              result += 'STUDIES:\n';
-              for (let i = 0; i < Math.min(studies, availableStudies.length); i++) {
-                const randomTask = availableStudies[Math.floor(Math.random() * availableStudies.length)];
-                result += `- ${randomTask}\n`;
-                availableStudies.splice(availableStudies.indexOf(randomTask), 1);
-              }
-              result += '\n';
-              hasAnyTasks = true;
-            }
-          }
-          
-          // Always include one workout (only if at least one other category was requested)
-          if (hasAnyTasks) {
-            const availableWorkouts = allTasks.workouts.filter(task => !completedTasks.includes(task));
-            if (availableWorkouts.length > 0) {
-              result += 'WORKOUTS:\n';
-              const randomWorkout = availableWorkouts[Math.floor(Math.random() * availableWorkouts.length)];
-              result += `- ${randomWorkout}\n`;
-            }
-          }
-          
-          return result.trim() || 'No tasks requested. Use: roll [projects] [skills] [studies]';
-          
-        } else if (cmd === 'done') {
-          const taskName = command.substring(5).trim().replace(/['"]/g, '');
-          
-          // Check if task exists
-          const allTasksList = Object.values(allTasks).flat();
-          if (!allTasksList.includes(taskName)) {
-            return `Error: Could not find task '${taskName}'.\nUse exact task names from the roll results.`;
-          }
-          
-          if (!completedTasks.includes(taskName)) {
-            completedTasks.push(taskName);
-            return `✓ Marked '${taskName}' as completed!\nThis task will no longer appear in roll results.`;
-          } else {
-            return `Task '${taskName}' is already completed.`;
-          }
-          
-        } else {
-          return `Unknown command: '${cmd}'\nType 'help' for available commands.`;
+        if (completedTasks.length > 0) {
+          result += `COMPLETED THIS SESSION: ${completedTasks.join(', ')}`;
         }
-      };
+        
+        return result.trim();
+      
+      } else if (cmd === 'roll') {
+        const projects = parseInt(parts[1]) || 0;
+        const skills = parseInt(parts[2]) || 0;
+        const studies = parseInt(parts[3]) || 0;
+        
+        let result = 'RECOMMENDED TASKS:\n\n';
+        let hasAnyTasks = false;
+        
+        if (projects > 0) {
+          const availableProjects = allTasks.projects.filter(task => !completedTasks.includes(task));
+          if (availableProjects.length > 0) {
+            result += 'PROJECTS:\n';
+            const selectedProjects = [...availableProjects]; // Create a copy to avoid modifying original
+            for (let i = 0; i < Math.min(projects, selectedProjects.length); i++) {
+              const randomIndex = Math.floor(Math.random() * selectedProjects.length);
+              const randomTask = selectedProjects[randomIndex];
+              result += `- ${randomTask}\n`;
+              selectedProjects.splice(randomIndex, 1); // Remove from copy to avoid duplicates
+            }
+            result += '\n';
+            hasAnyTasks = true;
+          }
+        }
+        
+        if (skills > 0) {
+          const availableSkills = allTasks.skills.filter(task => !completedTasks.includes(task));
+          if (availableSkills.length > 0) {
+            result += 'SKILLS:\n';
+            const selectedSkills = [...availableSkills]; // Create a copy
+            for (let i = 0; i < Math.min(skills, selectedSkills.length); i++) {
+              const randomIndex = Math.floor(Math.random() * selectedSkills.length);
+              const randomTask = selectedSkills[randomIndex];
+              result += `- ${randomTask}\n`;
+              selectedSkills.splice(randomIndex, 1);
+            }
+            result += '\n';
+            hasAnyTasks = true;
+          }
+        }
+        
+        if (studies > 0) {
+          const availableStudies = allTasks.studies.filter(task => !completedTasks.includes(task));
+          if (availableStudies.length > 0) {
+            result += 'STUDIES:\n';
+            const selectedStudies = [...availableStudies]; // Create a copy
+            for (let i = 0; i < Math.min(studies, selectedStudies.length); i++) {
+              const randomIndex = Math.floor(Math.random() * selectedStudies.length);
+              const randomTask = selectedStudies[randomIndex];
+              result += `- ${randomTask}\n`;
+              selectedStudies.splice(randomIndex, 1);
+            }
+            result += '\n';
+            hasAnyTasks = true;
+          }
+        }
+        
+        // Always include one workout (only if at least one other category was requested)
+        if (hasAnyTasks) {
+          const availableWorkouts = allTasks.workouts.filter(task => !completedTasks.includes(task));
+          if (availableWorkouts.length > 0) {
+            result += 'WORKOUTS:\n';
+            const randomWorkout = availableWorkouts[Math.floor(Math.random() * availableWorkouts.length)];
+            result += `- ${randomWorkout}\n`;
+          }
+        }
+        
+        return result.trim() || 'No tasks requested. Use: roll [projects] [skills] [studies]';
+        
+      } else if (cmd === 'done') {
+        const taskName = command.substring(5).trim().replace(/['"]/g, '');
+        
+        // Check if task exists
+        const allTasksList = Object.values(allTasks).flat();
+        if (!allTasksList.includes(taskName)) {
+          return `Error: Could not find task '${taskName}'.\nUse exact task names from the roll results.`;
+        }
+        
+        if (!completedTasks.includes(taskName)) {
+          completedTasks.push(taskName);
+          return `✓ Marked '${taskName}' as completed!\nThis task will no longer appear in roll results.`;
+        } else {
+          return `Task '${taskName}' is already completed.`;
+        }
+        
+      } else {
+        return `Unknown command: '${cmd}'\nType 'help' for available commands.`;
+      }
     }
 
     function appendToTerminal(text, type = 'normal') {
@@ -737,8 +739,7 @@ For the full version with persistent storage, visit the GitHub repository.`;
       appendToTerminal(`skilltree$ ${command}`);
       
       try {
-        const skillTreeFunction = createSimpleSkillTree();
-        const result = skillTreeFunction(command);
+        const result = processSkillTreeCommand(command);
         appendToTerminal(result);
       } catch (error) {
         appendToTerminal(`Error executing command: ${error.message}`, 'error');
