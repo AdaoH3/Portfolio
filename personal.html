@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal - Adam's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+    <style>
+        /* Navigation styling to match other pages */
+        nav {
+            padding: 1rem;
+            font-size: clamp(1.4rem, 2vw, 30px);
+            text-align: center;
+        }
+        
+        nav a {
+            color: #F5DAFF;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Container styling to match other pages */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+            color: white;
+        }
+        
+        .container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: white;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #F5DAFF;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 4rem;
+            line-height: 1.6;
+        }
+
+        /* Personal content styling */
+        .personal-section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 14px;
+            box-shadow: 0 6px 18px -6px rgba(0,0,0,0.55);
+        }
+        
+        .personal-section h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #F5DAFF;
+            padding-bottom: 1rem;
+        }
+        
+        .personal-section p {
+            line-height: 1.7;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .personal-section strong {
+            color: #F5DAFF;
+        }
+        
+        .highlight {
+            background: rgba(245, 218, 255, 0.2);
+            color: #F5DAFF;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .contact-info {
+            background: rgba(245, 218, 255, 0.05);
+            border-left: 4px solid #F5DAFF;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+        }
+        
+        .contact-info a {
+            color: #F5DAFF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .personal-section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .personal-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Thermoelectric Cooler.html">Thermoelectric AC</a>
+        <a href="HSProjects.html">HS Projects</a>
+        <a href="programs.html">Programs & Tech Club</a>
+        <a href="personal.html">Personal</a>
+    </nav>
+
+    <div class="container">
+        <h1>Personal</h1>
+        <p class="subtitle">Get to know me beyond the projects - my interests, goals, and what drives my passion for technology</p>
+
+        <div class="personal-section">
+            <h2>About Me</h2>
+            <p>
+                Hi! I'm Adam, a high school student passionate about technology, engineering, and making a positive impact in my community. 
+                My journey in tech started with curiosity and has grown into a deep love for problem-solving, learning, and sharing knowledge with others.
+            </p>
+            <p>
+                When I'm not coding or building circuits, you'll find me exploring new technologies, mentoring fellow students, 
+                or working on community projects that combine my technical skills with my desire to help others learn and grow.
+            </p>
+        </div>
+
+        <div class="personal-section">
+            <h2>Interests & Hobbies</h2>
+            <p>
+                <strong>Technology & Learning:</strong> I'm fascinated by the intersection of <span class="highlight">hardware and software</span>, 
+                from designing elegant circuit boards to developing intuitive user interfaces. I particularly enjoy projects that challenge me 
+                to learn new skills and apply them in creative ways.
+            </p>
+            <p>
+                <strong>Community Engagement:</strong> Through Tech Club and Circuit Charm, I've discovered how rewarding it is to share knowledge 
+                and inspire others to explore STEM. Teaching younger students has taught me as much as it has taught them.
+            </p>
+            <p>
+                <strong>Creative Problem Solving:</strong> Whether it's optimizing a circuit design, debugging complex code, or finding innovative 
+                ways to explain technical concepts, I thrive on challenges that require both analytical thinking and creative solutions.
+            </p>
+        </div>
+
+        <div class="personal-section">
+            <h2>Goals & Vision</h2>
+            <p>
+                My goal is to pursue a career in technology where I can continue to learn, innovate, and make a meaningful impact. 
+                I'm particularly interested in fields that combine technical expertise with social good - whether that's through 
+                educational technology, sustainable engineering, or accessible design.
+            </p>
+            <p>
+                I believe technology should be <span class="highlight">inclusive and empowering</span>, and I want to be part of creating 
+                solutions that make complex technology accessible to everyone, regardless of their background or experience level.
+            </p>
+        </div>
+
+        <div class="personal-section">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/AdaoH3" target="_blank">github.com/AdaoH3</a></p>
+                <p><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/yourprofile</a></p>
+                <p>
+                    Feel free to reach out if you'd like to collaborate on a project, discuss technology, 
+                    or just chat about shared interests. I'm always excited to connect with fellow makers and learners!
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
