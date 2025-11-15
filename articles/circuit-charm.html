@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circuit Charm 2024-2026 - Adam's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../style2.css"> -->
+    <style>
+        /* Base styles for this page */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: linear-gradient(to bottom, #3F3244 0%, #2F2235 100%);
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        /* Navigation styling to match other pages */
+        nav {
+            padding: 1rem;
+            font-size: clamp(1.4rem, 2vw, 30px);
+            text-align: center;
+        }
+        
+        nav a {
+            color: #F5DAFF;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Back button styling */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: #F5DAFF;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: #fff;
+        }
+
+        .back-button::before {
+            content: "← ";
+            margin-right: 0.5rem;
+        }
+
+        /* Article container */
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+            color: white;
+        }
+
+        /* Content wrapper with beige background from title down */
+        .content-wrapper {
+            background: #E6DDD4; /* darker beige */
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            margin-top: 2rem;
+            border: 1px solid rgba(139, 69, 19, 0.2);
+        }
+
+        /* Article header */
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #D2B48C;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: #2C1810; /* dark brown for title */
+            font-family: 'Georgia', 'Times New Roman', serif;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0;
+        }
+
+        .article-category {
+            background: rgba(139, 69, 19, 0.15);
+            color: #8B4513;
+            padding: 0.7rem 1.5rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 1px solid rgba(139, 69, 19, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Article content */
+        .article-content {
+            line-height: 1.8;
+            color: #2C1810; /* dark brown text */
+            font-size: 1.1rem;
+            background: transparent; /* remove redundant background */
+            padding: 0; /* remove redundant padding */
+            border-radius: 0;
+            box-shadow: none;
+            margin-top: 2rem;
+            border: none;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content h2 {
+            color: #8B4513;
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            border-bottom: 2px solid #D2B48C;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content strong {
+            color: #8B4513;
+        }
+
+        .highlight {
+            background: rgba(139, 69, 19, 0.15);
+            color: #8B4513;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Article lead paragraph */
+        .article-lead {
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.8;
+            color: #2C1810; /* dark brown to match content */
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(139, 69, 19, 0.08);
+            border-radius: 12px;
+            border-left: 4px solid #D2B48C;
+        }
+
+        /* Images */
+        .article-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .article-images img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 20px -6px rgba(0,0,0,0.6);
+        }
+
+        .article-images img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 5%;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #F5DAFF;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.2rem;
+            }
+
+            .article-lead {
+                font-size: 1.1rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .article-images {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../Thermoelectric Cooler.html">Thermoelectric AC</a>
+        <a href="../HSProjects.html">HS Projects</a>
+        <a href="../programs.html">Programs & Tech Club</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="article-container">
+        <a href="../programs.html" class="back-button">Back to Programs</a>
+        
+        <div class="content-wrapper">
+            <header class="article-header">
+                <h1 class="article-title">Circuit Charm</h1>
+                <div class="article-meta">
+                    <span class="article-category">2024-2026 | Local Community Project</span>
+                </div>
+            </header>
+
+                <p class="article-lead">
+                    In 2024 Dylan and I had an idea for a community project that could actually make impact in Las Vegas benefiting the future generation
+                    in hopes that the Las Vegas local future gains more interest in not only STEM but leadership. Las Vegas is known for many things like entertainment, gambling,
+                    and tourism, however still remains in the bottom 10 for education in the nation. 
+                    <br><br>
+                    We wanted to create a project that can encourage initative within the students themselves to lead the future. We've been through a long journey from proposing our
+                    project to the DKF foundation, getting accepted (with $5000 in funding), going community center to community center within low income areas
+                    in person to advertise free workshopsm, and finally executing the workshops mixing life skills and circuits.
+                </p>
+                    
+
+            <div class="article-images">
+                <img src="/images/articleImages/CircuitCharm/refsheet.png" alt="Circuit Charm Project Photo" onclick="openModal(this)">
+                <img src="/images/articleImages/CircuitCharm/cardboard.png" alt="Circuit Charm Project Photo" onclick="openModal(this)">
+                <img src="/images/articleImages/CircuitCharm/Progress Poster.png" alt="Circuit Charm Project Photo" onclick="openModal(this)">
+                <img src="/images/articleImages/CircuitCharm/volunteer.png" alt="Circuit Charm Project Photo" onclick="openModal(this)">
+                <img src="/images/articleImages/CircuitCharm/workshopAd.png" alt="Circuit Charm Project Photo" onclick="openModal(this)">
+                <img src="/images/articleImages/CircuitCharm/bulb.png" alt="Circuit Charm Project Photo" onclick="openModal(this)">
+                
+            </div>
+
+        <div class="article-content">
+            <h2>Project Pitch</h2>
+            <p><strong>Circuit Charm</strong> - Community Engagement through building the future generations learning skills through circuits!</p>
+            
+            <p>
+                Circuit Charm offers STEM and leadership workshops in “Teaching Life Skills Through Circuits”. The project is designed to educate lower-middle school students in 5th through 8th grade about STEM through circuits by teaching basic electronic theory, C++ coding for microcontrollers, and self-motivational “mastering mindset” skills, with hands-on labs. 
+                <br><br>
+                The goal fosters a passion for computer science and engineering among students in grades 5-8. Using AI and beginner hardware in our workshops, we hope not just to enhance their STEM abilities but also to empower innovators with the skills students need for success!
+            </p>
+            </p>
+
+            <h2>Budgeting</h2>
+            <p> 
+                First lesson we were taught under the DKF program, regardless of how much funding is available, it's effectiveness goes way farther. Workshops were altered to fit the budget while maintaining high impact and low costs for parts.
+                To deal with high costs of laptops we were able to get a sponsor to donate 20 laptops for usse during the workshops.
+            </p>
+            
+            <div class="article-images">
+                <img src="../images/articleImages/CircuitCharm/Budget.png" alt="Circuit Charm Budget" onclick="openModal(this)">
+            </div>
+            
+            <h2>Workshop Content Taught</h2>
+            <p>
+                A workshop normally lasted around 2 hours with 10-15 students per session and included portions from <span class="highlight">STEM</span> (me) and <span class="highlight">Leadership</span> (Dylan).
+            </p>
+            
+            <p><strong>My STEM Workshop Portions:</strong></p>
+            <div style="margin-left: 1.5rem; margin-bottom: 2rem;">
+                <p><strong>• Building LED Circuits</strong><br>
+                <em>Emphasized understanding theory and not just following step-by-step instructions</em></p>
+                
+                <p><strong>• Blinking an LED with Code</strong><br>
+                <em>Emphasized same principles but for programming fundamentals</em></p>
+                
+                <p><strong>• Motion Sensor Circuit Project</strong><br>
+                <em>Emphasized hands-on experience with both hardware and software components</em></p>
+                
+                <p><strong>• Cardboard Slope Challenge</strong><br>
+                <em>Design a system to slow down a marble - encouraged creative problem-solving and teamwork</em></p>
+                
+                <p><strong>• AI Research & ChatGPT Prompting</strong><br>
+                <em>Teaching kids to use AI tools for learning - kids loved making plans to develop their own interests!</em></p>
+            </div>
+            
+            <p><strong>Dylan's Leadership Workshop Portions:</strong></p>
+            <div style="margin-left: 1.5rem; margin-bottom: 2rem;">
+                <p><strong>• Speaking Up & Sharing Opinions</strong><br>
+                <em>Building confidence in expressing ideas and viewpoints</em></p>
+                
+                <p><strong>• Self-Motivation & Growth Mindset</strong><br>
+                <em>Developing intrinsic motivation for learning and personal development</em></p>
+                
+                <p><strong>• Mini-Presentation Exercise</strong><br>
+                <em>Hands-on practice to develop public speaking confidence</em></p>
+            </div>
+            
+            <h2>Future Directions</h2>
+            <p>
+              Moving forward, we plan to expand Circuit Charm by partnering with more community centers and schools to reach a wider audience. We aim to develop advanced workshops that build on the foundational skills taught in the initial sessions, incorporating more complex projects and real-world applications. As I graduate high school and head to college, I am transitioning my role to a responsible member within Tech Club that will continue the project.
+            </p>
+        </div>
+        </div> <!-- closing content-wrapper -->
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

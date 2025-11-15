@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT BWSI CyberOperations - Adam's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../style2.css"> -->
+    <style>
+        /* Base styles for this page */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: linear-gradient(to bottom, #3F3244 0%, #2F2235 100%);
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        /* Navigation styling to match other pages */
+        nav {
+            padding: 1rem;
+            font-size: clamp(1.4rem, 2vw, 30px);
+            text-align: center;
+        }
+        
+        nav a {
+            color: #F5DAFF;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Back button styling */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            color: #F5DAFF;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: #fff;
+        }
+
+        .back-button::before {
+            content: "← ";
+            margin-right: 0.5rem;
+        }
+
+        /* Article container */
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+            color: white;
+        }
+
+        /* Content wrapper with beige background from title down */
+        .content-wrapper {
+            background: #E6DDD4; /* darker beige */
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            margin-top: 2rem;
+            border: 1px solid rgba(139, 69, 19, 0.2);
+        }
+
+        /* Article header */
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #D2B48C;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: #2C1810; /* dark brown for title */
+            font-family: 'Georgia', 'Times New Roman', serif;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0;
+        }
+
+        .article-category {
+            background: rgba(139, 69, 19, 0.15);
+            color: #8B4513;
+            padding: 0.7rem 1.5rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 1px solid rgba(139, 69, 19, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Article content */
+        .article-content {
+            line-height: 1.8;
+            color: #2C1810; /* dark brown text */
+            font-size: 1.1rem;
+            background: transparent; /* remove redundant background */
+            padding: 0; /* remove redundant padding */
+            border-radius: 0;
+            box-shadow: none;
+            margin-top: 2rem;
+            border: none;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content h2 {
+            color: #8B4513;
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            border-bottom: 2px solid #D2B48C;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content strong {
+            color: #8B4513;
+        }
+
+        .highlight {
+            background: rgba(139, 69, 19, 0.15);
+            color: #8B4513;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Article lead paragraph */
+        .article-lead {
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.8;
+            color: #2C1810; /* dark brown to match content */
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(139, 69, 19, 0.08);
+            border-radius: 12px;
+            border-left: 4px solid #D2B48C;
+        }
+
+        /* Images */
+        .article-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .article-images img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 20px -6px rgba(0,0,0,0.6);
+        }
+
+        .article-images img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 5%;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.8);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #F5DAFF;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.2rem;
+            }
+
+            .article-lead {
+                font-size: 1.1rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .article-images {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../Thermoelectric Cooler.html">Thermoelectric AC</a>
+        <a href="../HSProjects.html">HS Projects</a>
+        <a href="../programs.html">Programs & Tech Club</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="article-container">
+        <a href="../programs.html" class="back-button">Back to Programs</a>
+        
+        <div class="content-wrapper">
+            <header class="article-header">
+                <h1 class="article-title">MIT BWSI CyberOperations</h1>
+                <div class="article-meta">
+                    <span class="article-category">March - July | Cyber Operations</span>
+                </div>
+            </header>
+
+                <p class="article-lead">
+                    Within BWSI Cyber Operations I learnt so many things and got a lotta experience using linux tools and understanding how to apply cybersec theory to real world problems. 
+                    <br>
+                    <br>The main program spanned 1 month (Mon-Fri from 7am PST-3pm PST). We were introduced to a wide variety of topics spanning from understanding private and public keys for encryption to simulating a side channel attacks to break encryption, and even reading and experimenting with quantum gates!
+            </p>
+
+            <div class="article-images">
+                <img src="../images/articleImages/BWSI/PreReq.png" alt="BWSI Prerequisites Certificate" onclick="openModal(this)">
+                <img src="../images/articleImages/BWSI/BWSICert.png" alt="BWSI Main Program Certificate" onclick="openModal(this)">
+                <img src="../images/articleImages/BWSI/flagExamples.png" alt="CTF Flag Examples" onclick="openModal(this)">
+                <img src="../images/articleImages/BWSI/picoFlag.png" alt="PicoCTF Flag Example" onclick="openModal(this)">
+            </div>
+
+        <div class="article-content">
+            <h2>Program Structure</h2>
+            <p><strong>MIT BWSI (CyberOperations)</strong> - Online Program (Self-Paced for pre-course, Live collaborative zoom call course for main program)</p>
+            
+            <p>
+                The MIT BWSI CyberOperations program consisted of a pre-requisite qualifying program and a main program. The pre-req program spanned 6 weeks and covered Digital Systems (electronics up to logic gates, flip-flops, and latches), System Administration [(CPU, RAM, SSDs), (Ubuntu and Linux Terminal functionality and theory), (computer architecture as a whole), (RAID and safety systems)], C++ and Assembly programming basics (learning how each allocates memory), Networking Admin (network hardware, the internet, and intro to networking), and cryptography (including steganography, digital handshakes, private and public keys, etc...).
+            </p>
+
+            <h2>Learning Experience</h2>
+            <p>
+                Learned a lot about computer architecture, learned about a lot of different attack surfaces, spent days focusing on different attack surfaces (such as the network or application layer), and simulated attacks advanced went through different labs and CTFs (Capture the Flag).
+            </p>
+            
+            <h2>Key Takeaways</h2>
+            <p>
+                This program has helped me not only learn and appreciate Linux, but also gave me an understanding of the theory for technical function of a computer that goes beyond just abstract knowledge. By simulating attacks (whether through writing our own program or reverse engineering code through Ghidra) we had to understand the complex theory behind memory allocation in assembly, what specifically we were attacking and how the system works. This understanding goes 
+                <br><span class="highlight">beyond cybersecurity</span> and gives me knowledge of what tools technically there are for building (for example the specifics on how servers work and how I can setup one based off of real life models).
+            </p>
+            
+            <h2>Reflection</h2>
+            <p>
+               Overall I am grateful I had the opportunity to attend such an intense program and am excited to build on everything I have learnt in future research and projects!
+            </p>
+        </div>
+        </div> <!-- closing content-wrapper -->
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = img.src;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

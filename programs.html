@@ -45,11 +45,16 @@
         }
         
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #F5DAFF;
             font-style: italic;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 4rem;
+            line-height: 1.6;
         }
 
         /* Article styling with dark theme */
@@ -66,7 +71,7 @@
         
         .article:hover {
             transform: translateY(-2px);
-            border-color: #F5DAFF;
+            border-color: rgba(245, 218, 255, 0.3);
         }
         
         .article-header {
@@ -111,11 +116,11 @@
         
         .article-lead {
             font-size: 1.1rem;
-            font-weight: 500;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 1.5rem;
-            font-style: italic;
+            font-style: normal;
         }
         
         .article-content {
@@ -160,8 +165,9 @@
         
         .article-images img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto; /* natural height based on aspect ratio */
+            max-height: 300px; /* limit maximum height for very tall images */
+            object-fit: contain; /* show the whole image */
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -200,8 +206,9 @@
         
         .gallery-grid img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto; /* natural height based on aspect ratio */
+            max-height: 300px; /* limit maximum height for very tall images */
+            object-fit: contain; /* show the whole image */
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -251,6 +258,131 @@
             color: #F5DAFF;
         }
 
+        /* Custom styling for article-like appearance with collapsible functionality */
+        .article-lead {
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2rem;
+            font-style: normal;
+            background: rgba(245, 218, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid rgba(245, 218, 255, 0.3);
+        }
+        
+        .article-lead p {
+            margin-bottom: 1rem;
+        }
+        
+        .article-lead p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Article Card Styling */
+        .article-card {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 14px;
+            box-shadow: 0 6px 18px -6px rgba(0,0,0,0.55);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(245, 218, 255, 0.4);
+            box-shadow: 0 12px 35px -10px rgba(0,0,0,0.7);
+            text-decoration: none;
+        }
+        
+        .article-card:visited {
+            color: inherit;
+        }
+        
+        .article-card.non-clickable {
+            cursor: default;
+            opacity: 0.8;
+        }
+        
+        .article-card.non-clickable:hover {
+            transform: none;
+            border-color: rgba(255,255,255,0.15);
+            box-shadow: 0 6px 18px -6px rgba(0,0,0,0.55);
+        }
+        
+        .article-preview {
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 1.5rem;
+            font-style: normal;
+        }
+        
+        .article-preview-image {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        
+        .article-preview-image img {
+            max-width: 600px;
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: none !important; /* Override any other box-shadow styles */
+            cursor: default; /* Remove pointer cursor for preview images */
+        }
+        
+        /* Specific styling for Circuit Charm image to make it larger */
+        .circuit-charm-preview img {
+            max-width: 800px !important;
+            max-height: 500px !important;
+        }
+        
+        .article-summary {
+            line-height: 1.7;
+            color: white;
+        }
+        
+        .article-summary p {
+            margin-bottom: 1rem;
+        }
+        
+        .article-summary strong {
+            color: #F5DAFF;
+        }
+        
+        .read-more {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-style: italic;
+        }
+        
+        .read-more .highlight {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-style: normal;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight {
+            background: rgba(245, 218, 255, 0.2);
+            color: #F5DAFF;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .nav-container {
@@ -293,140 +425,99 @@
 
     <div class="container">
         <h1>Programs & Tech Club</h1>
+        <p class="subtitle">This tab includes my most important programs & Tech Club. Read through to see some highlights of each!</p>
 
-        <!-- Program 1 -->
-        <article class="article">
-            <header class="article-header">
-                <h2 class="article-title">MIT BWSI CyberOperations</h2>
-                <div class="article-meta">
-                    <span class="article-category">March - July | Cyber Operations</span>
-                </div>
-            </header>
-            
-            <p class="article-lead">
-                Images from the course!
-            </p>
-            
-            <!-- Article Images (1-3 images) -->
-            <div class="article-images">
-                <img src="images/[your-image1].jpg" alt="Program 1 Image 1" onclick="openModal(this)">
-                <img src="images/[your-image2].jpg" alt="Program 1 Image 2" onclick="openModal(this)">
-                <img src="images/[your-image3].jpg" alt="Program 1 Image 3" onclick="openModal(this)">
-            </div>
-            
-            <div class="article-content">
-                <p><strong>[Location/Organization]</strong> - [Brief context about where this took place and why it was significant]</p>
+        <div class="projects-wrapper">
+            <!-- Program 1 - MIT BWSI -->
+            <a href="articles/bwsi-cyberoperations.html" class="article-card">
+                <header class="article-header">
+                    <h2 class="article-title">MIT BWSI CyberOperations</h2>
+                    <div class="article-meta">
+                        <span class="article-category">March - July 2024 | Cyber Operations</span>
+                    </div>
+                </header>
                 
-                <p>
-                    [Detailed paragraph about what you did, the challenges you faced, and the skills you developed. Use specific examples and metrics where possible.]
+                <p class="article-preview">
+                    An intensive cybersecurity program covering digital systems, cryptography, and hands-on CTF challenges. Gained deep understanding of Linux tools, attack surfaces, and computer architecture through practical application of theoretical concepts.
                 </p>
                 
-                <div class="quote">
-                    "[Include a meaningful quote, reflection, or key insight from this experience that demonstrates growth or learning.]"
+                <!-- Preview Image -->
+                <div class="article-preview-image">
+                    <img src="images/articleImages/BWSI/BWSICert.png" alt="BWSI Certificate Preview">
                 </div>
                 
-                <p>
-                    [Paragraph about the impact of this program - what you accomplished, how it changed your perspective, or what doors it opened. Mention specific <span class="highlight">key achievements</span> or <span class="highlight">skills gained</span>.]
-                </p>
-                
-                <p>
-                    [Concluding paragraph that ties this experience to your broader goals and explains why it was transformative for your development.]
-                </p>
-            </div>
-        </article>
+                <div class="article-summary">
+                    <p><strong>MIT BWSI (CyberOperations)</strong> - Online Program featuring both self-paced prerequisites and intensive live sessions</p>
+                    
+                    <p>Completed comprehensive training in digital systems, networking, assembly programming, and cryptography. Applied theoretical knowledge through practical CTF challenges and attack simulations.</p>
+                    
+                    <div class="read-more">
+                        <span class="highlight">Click to read full article →</span>
+                    </div>
+                </div>
+            </a>
 
-        <!-- Program 2 -->
-        <article class="article">
-            <header class="article-header">
-                <h2 class="article-title">[Program Name 2]: Advancing Excellence in [Field]</h2>
-                <div class="article-meta">
-                    <span class="article-date">[Start Date] - [End Date]</span>
-                    <span class="article-category">[Category/Type]</span>
-                </div>
-            </header>
-            
-            <p class="article-lead">
-                [Write a compelling lead paragraph that summarizes the most important aspects of this program and hooks the reader's attention. Focus on what made this experience unique or challenging.]
-            </p>
-            
-            <!-- Article Images (1-3 images) -->
-            <div class="article-images">
-                <img src="images/[your-image4].jpg" alt="Program 2 Image 1" onclick="openModal(this)">
-                <img src="images/[your-image5].jpg" alt="Program 2 Image 2" onclick="openModal(this)">
-            </div>
-            
-            <div class="article-content">
-                <p><strong>[Location/Organization]</strong> - [Brief context about the setting and significance of this program]</p>
+            <!-- Program 2 - Tech Club -->
+            <a href="articles/tech-club.html" class="article-card">
+                <header class="article-header">
+                    <h2 class="article-title">Founder & President of Tech Club</h2>
+                    <div class="article-meta">
+                        <span class="article-category">2023-2026 | The Meadows School</span>
+                    </div>
+                </header>
                 
-                <p>
-                    [Detailed description of your role, responsibilities, and the environment you worked in. Highlight specific projects or initiatives you contributed to.]
+                <p class="article-preview">
+                    Founded and led Tech Club at The Meadows School as a collaborative space for engineering, coding, and tech-interested students to share project work and learn together.
                 </p>
-                
-                <div class="quote">
-                    "[Share a meaningful insight or lesson learned that showcases your growth and adaptability.]"
-                </div>
-                
-                <p>
-                    [Discuss the technical skills, soft skills, or knowledge you gained. Mention any <span class="highlight">innovations</span> you contributed to or <span class="highlight">problems you solved</span>.]
-                </p>
-                
-                <p>
-                    [Explain how this program built upon your previous experiences and prepared you for future opportunities.]
-                </p>
-            </div>
-        </article>
 
-        <!-- Program 3 -->
-        <article class="article">
-            <header class="article-header">
-                <h2 class="article-title">[Program Name 3]: Leading Innovation in [Field]</h2>
-                <div class="article-meta">
-                    <span class="article-date">[Start Date] - [End Date]</span>
-                    <span class="article-category">[Category/Type]</span>
-                </div>
-            </header>
-            
-            <p class="article-lead">
-                [Write a compelling lead that positions this as your most recent or advanced experience, showing progression and increased responsibility.]
-            </p>
-            
-            <!-- Article Images (1-3 images) -->
-            <div class="article-images">
-                <img src="images/[your-image6].jpg" alt="Program 3 Image 1" onclick="openModal(this)">
-            </div>
-            
-            <div class="article-content">
-                <p><strong>[Location/Organization]</strong> - [Context about this advanced opportunity and what made it special]</p>
-                
-                <p>
-                    [Describe your elevated role and the complex challenges you tackled. Show how you applied lessons from previous programs.]
-                </p>
-                
-                <div class="quote">
-                    "[Include a reflection that demonstrates leadership, innovation, or significant personal/professional growth.]"
+                <!-- Preview Image -->
+                <div class="article-preview-image"> 
+                    <img src="images/articleImages/TechClub/clubmeet2.JPG" alt="BWSI Certificate Preview">
                 </div>
                 
-                <p>
-                    [Highlight your most impressive accomplishments, any <span class="highlight">leadership roles</span> you took on, or <span class="highlight">innovative solutions</span> you developed.]
-                </p>
-                
-                <p>
-                    [Conclude with how this experience has shaped your future goals and prepared you for the next chapter of your career or education.]
-                </p>
-            </div>
-        </article>
+                <div class="article-summary">
+                    <p><strong>The Meadows School Tech Club</strong> - Student-founded organization promoting technical collaboration and learning</p>
+                    
+                    <p>Successfully established club structure, organized weekly workshops, coordinated collaborative project sessions, and hosted showcases.</p>
+                    
+                    <div class="read-more">
+                        <span class="highlight">Click to read full article →</span>
+                    </div>
+                </div>
+            </a>
 
-        <!-- Bottom Image Gallery -->
-        <div class="image-gallery">
-            <h2 class="gallery-title">Program Highlights Gallery</h2>
-            <div class="gallery-grid">
-                <img src="images/[gallery-image1].jpg" alt="Gallery Image 1" onclick="openModal(this)">
-                <img src="images/[gallery-image2].jpg" alt="Gallery Image 2" onclick="openModal(this)">
-                <img src="images/[gallery-image3].jpg" alt="Gallery Image 3" onclick="openModal(this)">
-                <img src="images/[gallery-image4].jpg" alt="Gallery Image 4" onclick="openModal(this)">
-                <img src="images/[gallery-image5].jpg" alt="Gallery Image 5" onclick="openModal(this)">
-                <img src="images/[gallery-image6].jpg" alt="Gallery Image 6" onclick="openModal(this)">
-            </div>
+            <!-- Program 3 - Circuit Charm -->
+            <a href="articles/circuit-charm.html" class="article-card">
+                <header class="article-header">
+                    <h2 class="article-title">Circuit Charm: Co-Founder through DKF</h2>
+                    <div class="article-meta">
+                        <span class="article-category">2024-2026 | Local Community Project</span>
+                    </div>
+                </header>
+                
+                <p class="article-preview">
+                    Circuit Charm was funded through the Dragon Kim Foundation, a program that supports community initatives. Through the competitive selection process, Dylan (a friend of mine) and I were selected to recieve up to $5000 in funding to launch including leadership
+                    training (marketing, financing, and leadership skills). 
+                    <br><br>
+                    Circuit Charm provides workshops to local community centers over the summer to teach kids "life skills through circuits". We reached 100+ kids in our first summer alone and were able to change their minds
+                    about STEM and learning!
+                </p>
+                
+                <!-- Preview Image -->
+                <div class="article-preview-image circuit-charm-preview">
+                    <img src="images/articleImages/CircuitCharm/collage.png" alt="Circuit Charm Preview">
+                </div>
+                
+                <div class="article-summary">
+                    <p><strong>Circuit Charm</strong> - Community initiative focused on teaching life skills through electronics.</p>
+                    
+                    <p>Through hands-on workshops, we empower youth to explore technology, fostering creativity and problem-solving skills.</p>
+                    
+                    <div class="read-more">
+                        <span class="highlight">Click to read full article →</span>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 
