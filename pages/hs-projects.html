@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Projects</title>
+  <link rel="stylesheet" href="../css/style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+  <style>
+    .terminal-container {
+      background: #1e1e1e;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+      color: #00ff00;
+      border: 2px solid #333;
+    }
+    
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #333;
+    }
+    
+    .terminal-title {
+      color: #ffffff;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    
+    .terminal-buttons {
+      display: flex;
+      gap: 5px;
+    }
+    
+    .terminal-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    .btn-close { background: #ff5f57; }
+    .btn-minimize { background: #ffbd2e; }
+    .btn-maximize { background: #28ca42; }
+    
+    .terminal-output {
+      background: #000;
+      padding: 15px;
+      border-radius: 4px;
+      min-height: 200px;
+      max-height: 400px;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    
+    .terminal-input-container {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .terminal-prompt {
+      color: #00ff00;
+      margin-right: 5px;
+    }
+    
+    .terminal-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      outline: none;
+      caret-color: #00ff00;
+    }
+    
+    .terminal-input::after {
+      content: '▋';
+      color: #00ff00;
+      animation: blink 1s infinite;
+      margin-left: 2px;
+    }
+    
+    @keyframes blink {
+      0%, 50% {
+        opacity: 1;
+      }
+      51%, 100% {
+        opacity: 0;
+      }
+    }
+    
+    .command-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
+    }
+    
+    .command-btn {
+      background: #333;
+      color: #00ff00;
+      border: 1px solid #555;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      transition: background-color 0.2s;
+    }
+    
+    .command-btn:hover {
+      background: #555;
+    }
+    
+    .loading-text {
+      color: #ffbd2e;
+      font-style: italic;
+    }
+    
+    .error-text {
+      color: #ff5f57;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="thermoelectric-cooler.html">Research</a>
+    <a href="hs-projects.html">Coding Projects</a>
+    <a href="programs.html">Experiences</a>
+    <a href="personal.html">Personal</a>
+  </nav>
+
+  <header>
+    <h1>Coding Projects</h1>
+    <p>This page contains <u>some</u> of my high school projects throughout high school! A lot of these are fundamental projects that helped me apply the general basics
+    of programming that I've learned, taking something new and completely adapting and building upon it!</p>
+  </header>
+
+  <div class="projects-wrapper">
+  <!-- Final Club Project -->
+    <details class="project" open>
+      <summary>
+        <span>Cookie Buzz Game - Tech Club Fair Project <span class="project-year-tag">August 2025</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p> Idea: Create a simple two player buzzer game for the Tech Club Fair to attract people to the booth. Winner gets a cookie! 
+          <i>Context: Because of a hectic week, ended up building this in about 4-5 hours night before. Was fun!</i>
+        </p>
+        <img class="project-video right-float" src="../assets/images/hsProjImages/tech-club-2025/FullPhotoTC.jpg" alt="Locked Demo">
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Raspberry Pi 4+</li>
+          <li>Monitor</li>
+          <li>Arduino Leonardo</li>
+          <li>Two Arcade Buttons</li>
+          <li>Relay(For vibrating buzz box)</li>
+        </ul>
+        <h4>Final Thoughts</h4>     
+        <div class="final-thoughts">
+          <p> Wish I could've done something bigger, however still fun to build something quick that was a little different. 25 signups achieved again!
+          </p>
+          <p><strong>If I were to go back:</strong></p>
+          <ul>
+            <li>Definetly would have given myself more time to add sound effects, cooler UI, and a more complex game.
+            </li>
+          </ul>
+        </div>
+        <h4>Photo Gallery</h4>
+        <div class="project-gallery">
+            <img src="../assets/images/hsProjImages/tech-club-2025/BuzzerTc.jpg" alt="Cookie Buzz Game buzzer setup with arcade buttons" style="max-height: 300px; object-fit: contain; border-radius: 8px; border: 1px solid #ddd;">
+            <img src="../assets/images/hsProjImages/tech-club-2025/Consitutiton.jpg" alt="Constitution signup sheet at Tech Club booth" style="max-height: 300px; object-fit: contain; border-radius: 8px; border: 1px solid #ddd;">
+        </div>
+      </div>
+    </details>
+
+  <!-- LockApp -->
+    <details class="project">
+      <summary>
+        <span>LockApp WIP<span class="project-year-tag">July 2025</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p> Idea: Create an app along with program a microcontroller to completely lockdown phone when button is pressed. This means no exiting the app at all.
+        </p>
+        <img class="project-video right-float" src="../assets/images/hsProjImages/lock-app/lockApp3.jpg" alt="Locked Demo">
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>Android Kotlin Basics</li>
+          <li>XML Files and phone permissions</li>
+          <li>Learn XML Files and phone permissions</li>
+          <li>Bluetooth Server Hosting + Characteristics between Microcontroller and Phone App</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Adafruit Qualia ESP32 with TFT</li>
+          <li>Android Phone with Dev Permissions Enabled</li>
+        </ul>
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/androidLockApp/tree/main" target="_blank" rel="noopener">GitHub: Arduino and Android App Code</a>
+        </div>
+        <h4>Final Thoughts</h4>     
+        <div class="final-thoughts">
+          <p> Learning about permissions, making something that I actually still use daily, and implementing a bluetooth server was fun! I am working on adding a tracking
+            subsection with specific categories like subjects for tracking time spent.
+          </p>
+          
+          <p><strong>If I were to go back:</strong></p>
+          <ul>
+            <li>Honestly might redesign the whole app with new knowledge on Kotlin since I was learning through the process. Some parts are messy.
+            </li>
+            <li>Make a way nicer UI on both phone app and Qualia TFT
+            </li>
+            <li>Whole subject time tracking system on the app</li>
+          </ul>
+        </div>
+        <h4>Photo Gallery</h4>
+        <div class="project-gallery">
+            <img src="../assets/images/hsProjImages/lock-app/lockApp1.jpg" alt="Bluetooth Connection">
+            <img src="../assets/images/hsProjImages/lock-app/lockApp2.jpg" alt="Connected Interface">
+            <img src="../assets/images/hsProjImages/lock-app/lockApp3.jpg" alt="Locked Demo">
+            <img src="../assets/images/hsProjImages/lock-app/lockApp4.jpg" alt="Locked Can't Leave">
+            <img src="../assets/images/hsProjImages/lock-app/lockApp5.jpg" alt="Unlocked Demo">
+            <img src="../assets/images/hsProjImages/lock-app/lockApp6.jpg" alt="Unlocked Exit">
+        </div>
+      </div>
+    </details>
+
+  <!-- MetroTag MIT Blueprint Project -->
+    <details class="project">
+      <summary>
+        <span>MetroTag MIT Blueprint Project <span class="project-year-tag">March 2025</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p>Idea: MetroTag is a real-world game of tag using GPS locations. Players can be either taggers (who chase) or runners (who flee), and they use their mobile devices to track each other's positions.
+        <i>Context: Built for MIT Blueprint Hacakathon 2025 on a team of 4 within 12 hours.</i> 
+        <i>Credits: Adao(me), Crllct, Artificer, RamK (Discord and Github Handles)</i>
+        </p>
+        <img class="project-video right-float" src="../assets/images/hsProjImages/metro-tag/metroTag1.png" alt="MetroTag mobile app interface showing game lobby">
+        <h4>Goals</h4>
+        <ul>
+          <li>Redesign tag, but make it city wide. </li>
+          <li>Have an arrow pointing interface for tagger to track runners</li>
+          <li>Have a distance from tagger function for runners</li>
+          <li>Have create and join game functionality</li>
+          <li>Figure out how to give angle bearing for runner location</li>
+          <li>Code a GPS Map to track all players in a game</li>
+        </ul>
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>Expo Go basics</li>
+          <li>Bearing Latitude and Longatude Calculation</li>
+          <li>Flask setup for lobbies</li>
+          <li>GPS Tracking with LeafletJS</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>iPhone or Samsung Phone</li>
+        </ul>
+        <h4>Docs and Code</h4>
+        <b>Docs have all code explained!</b>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/MetroTag" target="_blank" rel="noopener">GitHub: MetroTag Repo</a>
+        </div>
+        <h4>Final Thoughts</h4>     
+        <div class="final-thoughts">
+          <p> Completely new experience workign with mobile app development and using a lot of JS and python in Flask. Although we had a bunch of git merge errors,
+            2 coding beginners, and a lot of  fights, we eventually made up and go to work really well together!
+          </p>
+          
+          <p><strong>If I were to go back:</strong></p>
+          <ul>
+            <li>Would have started with Flask server at first. Took a long time trying to use another service.</li>
+            <li>Know how to handle git merge conflicts from the start.</li>
+            <li>Add some cool powerup features around the map along with a border area. </li>
+          </ul>
+        </div>
+        <h4>Photo Gallery</h4>
+        <div class="project-gallery">
+          <img src="../assets/images/hsProjImages/metro-tag/metroTag1.png" alt="MetroTag app lobby screen">
+          <img src="../assets/images/hsProjImages/metro-tag/metroTag2.png" alt="MetroTag gameplay interface with GPS tracking">
+          <img src="../assets/images/hsProjImages/metro-tag/metroTag3.png" alt="MetroTag map view showing player locations">
+        </div>
+      </div>
+    </details>
+
+  <!-- Confetti Popper Launcher - Tech Club Fair Project -->
+    <details class="project">
+      <summary>
+        <span>Confetti Popper Launcher - Tech Club Fair Project <span class="project-year-tag">July 2024</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p>Idea: Build a confetti popper launcher for the Tech Club Fair to attract people to the booth.
+        <i>Context: Built for Tech Club Fair to attract people to the booth to sign up.
+        </p>
+        <img class="project-video right-float" src="../assets/images/hsProjImages/confetti-launcher/StringConfetti.jpg" alt="Confetti popper launcher with string mechanism">
+        <h4>Goals</h4>
+        <ul>
+          <li>Design and build a confetti popper launcher</li>
+          <li>Utilize drill motor for pulling mechanism </li>
+          <li>Build a timer display app that can communicate with raspberry pi GPIO pins</li>
+          <li>Use Flask for app backend communication on localhost</li>
+          <li>Code CPP file for triggering GPIO pins</li>
+          <li>Code LED blinker to draw suspense and attention <i>Using a bit of math!</i></li>
+        </ul>
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>Electron JS basics</li>
+          <li>Some CAD <i>used OnShape</i></li>
+          <li>Flask basics <i>Concept of server and localhost</i></li>
+          <li>Raspberry Pi GPIO pin control</li>
+          <li>Some Linux for permission requirements</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Raspberry Pi 4B+</li>
+          <li>PVC Pipe</li>
+          <li>3D printed parts</li>
+          <li>Drill Motor</li>
+          <li>Computer Monitor</li>
+          <li>Light-Bulb and a few Relays</li>
+        </ul>
+        <h4>Docs and Code</h4>
+        <b>Docs have all code explained!</b>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/electronConfettiApp/tree/master" target="_blank" rel="noopener">GitHub: ElectronJS file</a>
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/timerControlConfetti" target="_blank" rel="noopener">Github: LocalHost Flask Server and CPP code</a>
+        </div>
+        <h4>Final Thoughts</h4>     
+        <div class="final-thoughts">
+          <p> Such a fun project and definently drew a lot of attention to the Tech Club booth and got 25 signups! Was happy I got to apply some math, learn about servers and step into 
+            ElectronJS for the first time. 
+          </p>
+          <p><strong>If I were to go back:</strong></p>
+          <ul>
+            <li>Definetly would've designed a better mechanism for pulling the confetti poppers. The drill motor worked, however it was a bit janky since the pvc pipe spinner was not stable at all.
+            </li>
+            <li> Now with some Physics knowledge and calculations would have calulated the torque the drill could pull so could have a little more consistency and smoothness with the pulling. 
+            </li>
+          </ul>
+        </div>
+        <h4>Photo Gallery</h4>
+        <div class="project-gallery">
+          <img src="../assets/images/hsProjImages/confetti-launcher/TechClubInstaConfetti.jpg" alt="Tech Club booth with confetti launcher setup">
+          <div class="gallery-item">
+            <img src="../assets/images/hsProjImages/confetti-launcher/Spin3.jpg" alt="Confetti Launching after timer hits zero">
+            <div class="image-caption">Confetti Launching after timer hits zero</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/hsProjImages/confetti-launcher/confettiLaunchGraph.png" alt="Graph showing delay function for relay blinks">
+            <div class="image-caption">Delay Function Graph for Relay Blinks (Suspense buildup)</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  <!-- HackNight Project -->
+    <details class="project">
+      <summary>
+        <span>HackNight Project Pomodoro Quest <span class="project-year-tag">June 2024</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p>Prompt: Life often requires us to juggle side quests alongside main objectives. Create a project that
+          emphasizes one of these "side-quests".
+        <i>Context: 60 people competition in BB&N with teams of 2-4. This was a 24 hour competition.</i>
+        </p>
+        <img class="project-video right-float" src="../assets/images/hsProjImages/hacknight/CloseUpHackathon.jpg" alt="Close-up of hackathon project setup">
+        <h4>Goals</h4>
+        <ul>
+          <li>Brainstorm ideas for prompt</li>
+          <li>Create a project plan (What both of us should priortize)</li>
+          <li>Crllect (teamate) -> App Dev for interface with hardware timer</li>
+          <li>Me -> Hardware project dealing with recieving time from app, displaying it, and indicating end</li>
+          <li>Develop protocol to communicate between app and hardware controller through Adafruit API</li>
+        </ul>
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>Messed around with different ways and protocols to communicate from controller to app <i>Tried serial and a few different ways to communicate time</i></li>
+          <li>First team project for engineering! Met some really cool people and made a new friend!</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Adafruit ESP32-S2 TFT Reverse Feather</li>
+          <li>Adafruit IO API</li>
+        </ul>
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/HacKnightProj/tree/main" target="_blank" rel="noopener">GitHub: My Part (Hardware Technical Explanation in README)</a>
+          <a class="btn-link secondary" href="https://github.com/crllect/hacknight/tree/main" target="_blank" rel="noopener">Github: Crllect's Part (App integration with ChatGPT) </a>
+        </div>
+        <h4>Final Thoughts</h4>     
+        <div class="final-thoughts">
+          <p> This was a really good capstone project for skills built up from microcontrollers with APIs, TFT display graphics, and timer/millis functionality. When
+          went to Boston for this hackathon got really inspired by others and like minded interested high schoolers!
+          </p>
+          
+          <p><strong>If I were to go back:</strong></p>
+          <ul>
+            <li>I originally was trying to get the project done with USB data transfer (Serial), however getting it to work with the app itself when talking with 
+              crllct was a pain to handle in the moment. Would've skipped this part and gone straight to bluetooth to have more time for other features.
+            </li>
+            <li>After Serial shenanigans, did not have time to implement bluetooth functionality (more realistic for users with multiple devices), so going back would have definently focussed on that.
+            </li>
+            <li> Going back with bluetooth, would have also convinced Crllct to build app in using Expo Go so we could use bluetooth between app and server easy.</li>
+          </ul>
+        </div>
+        <h4>Photo Gallery</h4>
+        <div class="project-gallery">
+          <div class="gallery-item">
+            <img src="../assets/images/hsProjImages/hacknight/hackathonFull.jpg" alt="Hackathon workspace with multiple teams">
+            <div class="image-caption">Hackathon Table (Included our and a few other teams)</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/hsProjImages/hacknight/hackathonPortrait.jpg" alt="Portrait of hackathon team members">
+            <div class="image-caption">Me and Crllct (This was after 2 hrs of sleep in the 24 hr hackathon, face a little demented lol)</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/hsProjImages/hacknight/projectFocusHackathon.jpg" alt="Focused view of hackathon project demo">
+            <div class="image-caption">Project demo photo</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  <!-- SkillTree Management System -->
+    <details class="project">
+      <summary>
+        <span>SkillTree Management System <span class="project-year-tag">June 2024</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p>C++ terminal script. Sample version uses JS and manages tasks randomizing the selection of uncompleted tasks.</p>
+        <i>NOTE: The simulation version doesn NOT run off of original C++ code 
+          Original runs off of Replit under a simulator enviornment.
+        </i>
+        <h4>Features</h4>
+        <ul>
+          <li>Task dependency management (prerequisites system)</li>
+          <li>Random task selection by category</li>
+          <li>Progress tracking and completion marking using a saving and parsing system on a saveState file.</li>
+          <li>Categories: Projects, Skills, Studies, Workout</li>
+        </ul>
+
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>Application of OOP from Computer Science A class</li>
+          <li>Basics on how file saves work and how data is parsed</li>
+        </ul>
+
+        <h4>Technologies Used</h4>
+        <ul class="inline-tags">
+          <li>C++</li>
+          <li>JS (Web Simulator)</li>
+        </ul>
+
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+        <a class="btn-link secondary" href="https://github.com/AdaoH3/skillAchieveTree/tree/main" target="_blank" rel="noopener">View Original Code on GitHub</a>
+        </div>
+
+        <img class="project-video" src="../assets/images/hsProjImages/skill-tree/skillTree.png" alt="SkillTree management system diagram with task categories">
+
+        <h4>How to Use</h4>
+        <div class="final-thoughts">
+          <p><strong>Note:</strong> Original code worked on terminal on replit, however since 
+          Replit moved to a premium service for publishing, the working version is not able to be used without me paying for a subscription. </p>
+        </div>
+
+        <h4>Project Architecture</h4>
+        <div class="final-thoughts">
+          <p>This prototype demonstrates:</p>
+          <ul>
+            <li><strong>Random task selection</strong> by category</li>
+            <li><strong>Clean command-line interface</strong> design</li>
+          </ul>
+          
+          <p><strong>Full Version Features:</strong></p>
+          <ul>
+            <li>Object-oriented design with Task and SkillTree classes</li>
+            <li>Task dependency management (prerequisites system)</li>
+            <li>Persistent progress storage using txt file storage</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+  <!-- CodexScope -->
+    <details class="project">
+      <summary>
+        <span>CodexScope Learning Board <span class="project-year-tag">January-March 2024</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p> Task: Develop a learning board for microcontrollers and TFT displays</p>
+        <i>IMPORTANT: This project was not fully finished, however it was useful in figuring out content for CircuitCharm
+          and teaching electronic basics while also reviewing my current understanding of electronics. 
+        </i>
+        <img class="project-video right-float" src="../assets/images/hsProjImages/codex-scope/CodexScopeManual.png" alt="CodexScope learning board manual page">
+        <h4>Goals</h4>
+        <ul>
+          <li>Understand how I would want to learn electronics if I could start again to develop a good learning device</li>
+          <li>Design the device</li>
+          <li>Make a manual laying out how to use it</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Raspberry Pi Pico WH</li>
+          <li>TFT Driver Board</li>
+          <li>Large TFT Display</li>
+          <li>Piezo Buzzer</li>
+          <li>Arcade Button</li>
+        </ul>
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>A tiny bit of OnShape for Cases</li>
+          <li>EasyEDA and PCB design process (BASICS)</li>
+          <li>C++ File Application for I/O Sensors</li>
+        </ul>
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://www.canva.com/design/DAGDMwLlIXk/HyX6laXIq7LjiRrjdqwt5Q/edit?utm_content=DAGDMwLlIXk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener">Manual made on Canva</a>
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/picodisp/tree/main" target="_blank" rel="noopener">Arcade Game Demo Code</a>
+        </div>
+        <h4>Final Thoughts</h4>
+        <div class="final-thoughts">
+          <p>Although I didn't get to finish the full project and manual, the experience gained helped me format some of the 
+            curriculum for Tech Club and CircuitCharm.
+          </p>
+          
+          <p><strong>Two things I would do better going back:</strong></p>
+          <ul>
+            <li>Create a more organzied project plan (was kind of figuring it out as I go)</li>
+            <i>TFT screen got cracked twice through travel, stopped the project after since cost for part is high and was a 
+              large time time setback.
+            </i>
+          </ul>
+
+          <p><strong>If I were to continue this project:</strong></p>
+          <ul>
+            <li>Complete the interactive software tutorials on the TFT display</li>
+            <li>Add more sensor modules and expansion options</li>
+          </ul>
+        </div>
+        
+        <h4>Photo Gallery</h4>
+        <div class="project-gallery">
+          <div class="gallery-item">
+            <img src="../assets/images/hsProjImages/codex-scope/ArcadeGame1.gif" alt="Demo arcade timing game on TFT display">
+            <div class="image-caption">Demo Arcade Timing Game</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/hsProjImages/codex-scope/ArcadeGame2.gif" alt="Random timing game demo with blue target">
+            <div class="image-caption">Demo Random Timing Game (Press on blue = win)</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/hsProjImages/codex-scope/codexScope.jpeg" alt="CodexScope learning board with TFT display and components">
+            <div class="image-caption">Original circuit schematic for CodexScope (Voltage booster was removed, found a driver board that
+              works off of 3.3V directly).
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/hsProjImages/codex-scope/3DPrintCase.jpeg" alt="3D printed enclosure for CodexScope learning board">
+            <div class="image-caption">Custom 3D enclosure for the learning board made on OnShape</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/hsProjImages/codex-scope/SolderCodex.jpg" alt="Soldering components for CodexScope project">
+            <div class="image-caption">Soldering components together</div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  <!-- API TFT Display -->
+    <details class="project">
+      <summary>
+        <span>Quaver Achievement Fetch on TFT (API) <span class="project-year-tag">December 2023</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p> Task: Tft display that fetches rhythm game data from Quaver API and displays my achievements. 
+        </p>
+        <img class="project-video right-float" src="../assets/images/hsProjImages/quaver-api/tftGif.gif" alt="TFT display showing Quaver API achievement data">
+        <h4>Goals</h4>
+        <ul>
+          <li>Understand what an API is</li>
+          <li>Understand how to use APIs from a specific source (POSTMAN)</li>
+          <li>Understand how to use WiFi on an ESP32-S2 to fetch this data</li>
+          <li>Understand TFT refreshing and getting more comfortable with the display library</li>
+        </ul>
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>API usage and WiFi basics for microcontrollers</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Adafruit ESP32-S2 TFT Feather</li>
+        </ul>
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/APIwTFT/tree/main" target="_blank" rel="noopener">View Code on GitHub</a>
+          <a class="btn-link secondary" href="https://adaoh3.blogspot.com/2023/12/get-your-favorite-stats-updated.html" target="_blank" rel="noopener">Read Project Blog</a>
+          <a class="btn-link secondary" href="https://wiki.quavergame.com/docs/api-v2" target="_blank" rel="noopener">Quaver API Reference</a>
+        </div>
+        <h4>Final Thoughts</h4>     
+        <div class="final-thoughts">
+          <p> These skills definentely became critical in later projects where I needed to fetch data from other interfaces
+            such as AdafruitIO and local servers. I also got more comfortable with the TFT display library and how to render text on the screen.
+          </p>
+          
+          <p><strong>If I were to go back:</strong></p>
+          <ul>
+            <li>With the experience now, I would've messed around a little more with the TFT display library and get my username
+              and profile picutre to display on the screen as well (I was having trouble with this at the time)
+            </li>
+            <li> Would've handeled the screen referesh better. When fetching data from the API, the number is blacked out on the 
+              screen. I would have waited for the API to first recieve data before refereshing the screen so the screen doesn't have to 
+              empty itself first. 
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+  <!-- Rhythm Game Controller -->
+    <details class="project">
+      <summary>
+        <span>Rhythm Game Controller Build <span class="project-year-tag">September 2023</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p> Task: Build a budget friendly rhythm game controller (The usual ones average around $188!!) </p>
+        <img class="project-video right-float" src="../assets/images/hsProjImages/rhythm-controller/rhythmGame.gif" alt="Custom rhythm game controller in action">
+        <h4>Goals</h4>
+        <ul>
+          <li>Understand the electronics behind a controller</li>
+          <li>Understand button interrupts and debouncing</li>
+          <li>Understand how a rotary encoder works and how can be used to move mouse position for software with a microcontroller</li>
+          <li>Alter and mess around code to get controller to have a mode switching function for different software's reading input</li>
+          <li>Fully build and execute first big project!</li>
+        </ul>
+        <h4>Skills Learnt</h4>
+        <ul>
+          <li>Soldering</li>
+          <li>How to Crimp + Learn what is a Daisy Chain</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Arduino Leonardo</li>
+          <li>No Detent Rotary Encoders x2</li>
+          <li>Beatmania Arcade Buttons (Repurposed)</li>
+          <li>SDVX DIY Knob</li>
+        </ul>
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/modifiedControllerCode/blob/main/src/main.cpp" target="_blank" rel="noopener">View Code on GitHub</a>
+          <a class="btn-link secondary" href="https://adaoh3.blogspot.com/2023/09/diy-arcade-rythm-game-controller.html" target="_blank" rel="noopener">Read Project Blog</a>
+          <a class="btn-link secondary" href="https://consandstuff.github.io/rhythmcons/sound-voltex/sdvx-normal/" target="_blank" rel="noopener">CONS&STUFF Guide (Adapted Project from this Guide)</a>
+        </div>
+        <h4>Final Thoughts</h4>     
+        <div class="final-thoughts">
+          <p> This was one of my most favorite projects since it was the first biggest step I had ever taken toward building and working with custom hardware. I was so scared
+            that I would have purchased incompatible parts, or I would mess up the soldering (which I did do a few times), and would never finish this project. However, after a lot of trial and error, 
+            I managed to get everything working and it was such a rewarding experience!  
+          </p>
+          
+          <p><strong>If I were to go back:</strong></p>
+          <ul>
+            <li>Would have used wire crimps instead of alligator clips. The fact that I used alligator clips is silly (made wiring a mess), but was worried I would do 
+              something wrong with crimps. Thankfully comfortable with using them now</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+  <!-- GIF Cycle Project -->
+    <details class="project">
+      <summary>
+        <span>GIF TFT Cycle Project <span class="project-year-tag">July 2023</span></span>
+        <span class="chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="project-body">
+        <p> Task: Use a TFT Display to display and cycle through 3 different GIFS with a button </p>
+        <h4>Goals</h4>
+        <ul>
+          <li>Understand how Images Display / Render (Used image to C command line tools)</li>
+          <li>Get use to using display libraries for TFTs</li>
+          <li>Expirement with what I can do by adding a button scroll function for the GIFs</li>
+        </ul>
+        <h4>Key Components</h4>
+        <ul class="inline-tags">
+          <li>Adafruit ESP32-S2 TFT Feather</li>
+        </ul>
+        <h4>Docs/Code</h4>
+        <div class="project-links">
+          <a class="btn-link secondary" href="https://github.com/AdaoH3/GIFCycle-for-ESP32-TFT-Displays" target="_blank" rel="noopener">View Code on GitHub</a>
+          <a class="btn-link secondary" href="https://adaoh3.blogspot.com/2023/07/cycle-gifs-with-arduino-and-tft-display.html" target="_blank" rel="noopener">Read Project Blog</a>
+        </div>
+        <h4>Final Thoughts</h4>
+        <div class="final-thoughts">
+          <p>Although the code is very messy, I learnt a lot about the process of looking at uknown libraries and figuring out how to use their interface.</p>
+          
+          <p><strong>Two things I would do better going back:</strong></p>
+          <ul>
+            <li>Clean up the code and make it wayyy more readable</li>
+            <li>Tie the button press switch to an interrupt pin instead of polling it in the loop</li>
+          </ul>
+
+          <p>The loop polling works, however, there is a slight delay when pressing the button to change the image.</p>
+        </div>
+        <img class="project-video" src="../assets/images/hsProjImages/gif-cycle/JettScroll.gif" alt="TFT display cycling through GIFs with button control">
+      </div>
+    </details>
+  <script>
+    let skillTreeReady = false;
+    let completedTasks = []; // Move this to global scope to persist between commands
+
+    // All available tasks - move to global scope
+    const allTasks = {
+      projects: [
+        'Codex Scope DIY Manual',
+        'Dragon Kim Workshops', 
+        'School Club Improvements',
+        'Codex Scope Demo Product',
+        'Clock Countdown'
+      ],
+      skills: [
+        'Github And Git',
+        'Linux',
+        'Unity Basics',
+        'Graphics Library',
+        'Learn Electron',
+        'Serial Transmit',
+        'Serial Transmit And Receive',
+        'Bash Scripting',
+        'Raspberry Pi',
+        'Web Portfolio'
+      ],
+      studies: [
+        'SAT Math',
+        'SAT Reading',
+        'AMC Math',
+        'Driver Test'
+      ],
+      workouts: [
+        'Chest Workout',
+        'Tricep Workout',
+        'Shoulder And Back Workout',
+        'Leg And Forearm Workout'
+      ]
+    };
+
+    // Simple prototype SkillTree - simplified to just process commands
+    function processSkillTreeCommand(command) {
+      const parts = command.trim().split(' ');
+      const cmd = parts[0].toLowerCase();
+      
+      if (cmd === 'help') {
+        return `Available commands:
+  help - Show this help message
+  list - Show all available tasks
+  roll [projects] [skills] [studies] - Get random tasks
+  done [task_name] - Mark task as completed (session only)
+  clear - Clear the terminal
+
+Example: roll 2 1 1 (gets 2 projects, 1 skill, 1 study)
+Workout type always included.
+
+Note: This is a simplified prototype. Completed tasks reset on page reload.
+For the full version with persistent storage, visit the GitHub repository.`;
+      
+      } else if (cmd === 'list') {
+        let result = 'AVAILABLE TASKS:\n\n';
+        
+        Object.entries(allTasks).forEach(([category, tasks]) => {
+          const availableTasks = tasks.filter(task => !completedTasks.includes(task));
+          if (availableTasks.length > 0) {
+            const categoryName = category.toUpperCase();
+            result += `${categoryName}:\n`;
+            availableTasks.forEach(task => {
+              result += `- ${task}\n`;
+            });
+            result += '\n';
+          }
+        });
+        
+        if (completedTasks.length > 0) {
+          result += `COMPLETED THIS SESSION: ${completedTasks.join(', ')}`;
+        }
+        
+        return result.trim();
+      
+      } else if (cmd === 'roll') {
+        const projects = parseInt(parts[1]) || 0;
+        const skills = parseInt(parts[2]) || 0;
+        const studies = parseInt(parts[3]) || 0;
+        
+        let result = 'RECOMMENDED TASKS:\n\n';
+        let hasAnyTasks = false;
+        
+        if (projects > 0) {
+          const availableProjects = allTasks.projects.filter(task => !completedTasks.includes(task));
+          if (availableProjects.length > 0) {
+            result += 'PROJECTS:\n';
+            const selectedProjects = [...availableProjects]; // Create a copy to avoid modifying original
+            for (let i = 0; i < Math.min(projects, selectedProjects.length); i++) {
+              const randomIndex = Math.floor(Math.random() * selectedProjects.length);
+              const randomTask = selectedProjects[randomIndex];
+              result += `- ${randomTask}\n`;
+              selectedProjects.splice(randomIndex, 1); // Remove from copy to avoid duplicates
+            }
+            result += '\n';
+            hasAnyTasks = true;
+          }
+        }
+        
+        if (skills > 0) {
+          const availableSkills = allTasks.skills.filter(task => !completedTasks.includes(task));
+          if (availableSkills.length > 0) {
+            result += 'SKILLS:\n';
+            const selectedSkills = [...availableSkills]; // Create a copy
+            for (let i = 0; i < Math.min(skills, selectedSkills.length); i++) {
+              const randomIndex = Math.floor(Math.random() * selectedSkills.length);
+              const randomTask = selectedSkills[randomIndex];
+              result += `- ${randomTask}\n`;
+              selectedSkills.splice(randomIndex, 1);
+            }
+            result += '\n';
+            hasAnyTasks = true;
+          }
+        }
+        
+        if (studies > 0) {
+          const availableStudies = allTasks.studies.filter(task => !completedTasks.includes(task));
+          if (availableStudies.length > 0) {
+            result += 'STUDIES:\n';
+            const selectedStudies = [...availableStudies]; // Create a copy
+            for (let i = 0; i < Math.min(studies, selectedStudies.length); i++) {
+              const randomIndex = Math.floor(Math.random() * selectedStudies.length);
+              const randomTask = selectedStudies[randomIndex];
+              result += `- ${randomTask}\n`;
+              selectedStudies.splice(randomIndex, 1);
+            }
+            result += '\n';
+            hasAnyTasks = true;
+          }
+        }
+        
+        // Always include one workout (only if at least one other category was requested)
+        if (hasAnyTasks) {
+          const availableWorkouts = allTasks.workouts.filter(task => !completedTasks.includes(task));
+          if (availableWorkouts.length > 0) {
+            result += 'WORKOUTS:\n';
+            const randomWorkout = availableWorkouts[Math.floor(Math.random() * availableWorkouts.length)];
+            result += `- ${randomWorkout}\n`;
+          }
+        }
+        
+        return result.trim() || 'No tasks requested. Use: roll [projects] [skills] [studies]';
+        
+      } else if (cmd === 'done') {
+        const taskName = command.substring(5).trim().replace(/['"]/g, '');
+        
+        // Check if task exists
+        const allTasksList = Object.values(allTasks).flat();
+        if (!allTasksList.includes(taskName)) {
+          return `Error: Could not find task '${taskName}'.\nUse exact task names from the roll results.`;
+        }
+        
+        if (!completedTasks.includes(taskName)) {
+          completedTasks.push(taskName);
+          return `✓ Marked '${taskName}' as completed!\nThis task will no longer appear in roll results.`;
+        } else {
+          return `Task '${taskName}' is already completed.`;
+        }
+        
+      } else {
+        return `Unknown command: '${cmd}'\nType 'help' for available commands.`;
+      }
+    }
+
+    function appendToTerminal(text, type = 'normal') {
+      const output = document.getElementById('terminal-output');
+      if (!output) return; // Safety check
+      
+      const span = document.createElement('span');
+      
+      if (type === 'error') {
+        span.className = 'error-text';
+      } else if (type === 'loading') {
+        span.className = 'loading-text';
+      }
+      
+      span.textContent = text + '\n';
+      output.appendChild(span);
+      output.scrollTop = output.scrollHeight;
+    }
+
+    function executeCommand(command) {
+      if (!skillTreeReady) {
+        appendToTerminal('Error: SkillTree not ready yet. Please wait...', 'error');
+        return;
+      }
+
+      // Handle clear command directly
+      if (command.trim().toLowerCase() === 'clear') {
+        clearTerminal();
+        return;
+      }
+
+      appendToTerminal(`skilltree$ ${command}`);
+      
+      try {
+        const result = processSkillTreeCommand(command);
+        appendToTerminal(result);
+      } catch (error) {
+        appendToTerminal(`Error executing command: ${error.message}`, 'error');
+      }
+    }
+
+    function executeQuickCommand(command) {
+      executeCommand(command);
+    }
+
+    function handleInput(event) {
+      if (event.key === 'Enter') {
+        const input = document.getElementById('terminal-input');
+        if (!input) return; // Safety check
+        
+        const command = input.value.trim();
+        
+        if (command) {
+          executeCommand(command);
+          input.value = '';
+        }
+      }
+    }
+
+    function clearTerminal() {
+      const output = document.getElementById('terminal-output');
+      if (output) {
+        output.innerHTML = '';
+      }
+    }
+
+    // Initialize when page loads
+    window.addEventListener('DOMContentLoaded', function() {
+      // Initialize SkillTree
+      skillTreeReady = true;
+      const output = document.getElementById('terminal-output');
+      if (output) {
+        output.innerHTML = '';
+        appendToTerminal('SkillTree Prototype Ready!', 'success');
+        appendToTerminal('Type "help" to see available commands.\n', 'info');
+      }
+    });
+
+    // Make accordion exclusive - only one project open at a time
+    const projectDetails = document.querySelectorAll('details.project');
+    
+    projectDetails.forEach((detail) => {
+      detail.addEventListener('toggle', () => {
+        if (detail.open) {
+          // Close all other project details when one is opened
+          projectDetails.forEach((otherDetail) => {
+            if (otherDetail !== detail) {
+              otherDetail.open = false;
+            }
+          });
+        }
+      });
+    });
+  </script>
+  
+  <!-- Bottom spacing for better scrolling -->
+  <div style="height: 150px;"></div>
+</body>
+</html>
