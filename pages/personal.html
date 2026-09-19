@@ -84,6 +84,60 @@
             padding-bottom: 1rem;
             text-align: center;
         }
+
+        .academic-dropdown {
+            padding: 0;
+            overflow: hidden;
+            transition: border-color .3s, transform .25s;
+        }
+
+        .academic-dropdown[open] {
+            border-color: #F5DAFF;
+            padding-bottom: 2.5rem;
+        }
+
+        .academic-dropdown:hover {
+            transform: translateY(-2px);
+        }
+
+        .academic-dropdown > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .academic-dropdown > summary .academic-chevron {
+            width: 12px;
+            height: 12px;
+            border-right: 2px solid #F5DAFF;
+            border-bottom: 2px solid #F5DAFF;
+            transform: rotate(45deg);
+            transition: transform .35s;
+            margin-left: 1rem;
+            position: absolute;
+            right: 1.25rem;
+        }
+
+        .academic-dropdown[open] > summary .academic-chevron {
+            transform: rotate(-135deg);
+        }
+
+        .academic-dropdown > summary h2 {
+            margin-bottom: 0;
+        }
+
+        .academic-dropdown > :not(summary) {
+            margin-left: 2.5rem;
+            margin-right: 2.5rem;
+        }
+
+        .academic-dropdown > summary::-webkit-details-marker {
+            display: none;
+        }
         
         .personal-section p {
             line-height: 1.8;
@@ -251,20 +305,38 @@
                 pass on.
             </p>
             <p>
-                <strong>Video Games:</strong> Other than being the top 3% of players in a Rhythm Game Quaver [and having good ranks in others], I enjoy
+                <strong>Video Games:</strong> Top 3% of players in a Rhythm Game Quaver!!, I enjoy
                 playing fighting games like Street Fighter (Almost Platinum!), strategy games like FrostPunk, and (older) arcade games.  
             </p>
         </div>
 
-        <div class="personal-section">
-            <h2>High School Academics</h2>
+        <details class="personal-section academic-dropdown">
+            <summary><h2>High School Academics</h2><span class="academic-chevron" aria-hidden="true"></span></summary>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                <div style="background: rgba(245, 218, 255, 0.05); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #F5DAFF;">
+                    <h3 style="color: #F5DAFF; font-size: 1.3rem; margin-bottom: 1rem; text-align: center;">GPA</h3>
+                    <div style="text-align: center;">
+                        <p style="font-size: 1.2rem;"><strong>Weighted:</strong> <span style="color: #F5DAFF; font-size: 1.4rem;">5.09/4.0</span></p>
+                    </div>
+                </div>
+
+                <div style="background: rgba(245, 218, 255, 0.05); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #F5DAFF;">
+                    <h3 style="color: #F5DAFF; font-size: 1.3rem; margin-bottom: 1rem; text-align: center;">SAT Scores</h3>
+                    <div style="text-align: center;">
+                        <p style="font-size: 1.2rem; margin-bottom: 0.5rem;"><strong>Math:</strong> <span style="color: #F5DAFF; font-size: 1.4rem;">770</span></p>
+                        <p style="font-size: 1.2rem;"><strong>EBRW:</strong> <span style="color: #F5DAFF; font-size: 1.4rem;">700</span></p>
+                        <p style="font-size: 1.1rem; opacity: 0.8;"><strong>Total:</strong> 1470</p>
+                    </div>
+                </div>
+            </div>
 
             <h2>Achievements</h2>
             <div class="achievements-grid">
                 <div class="achievement-category">
                     <h3>Academic Excellence</h3>
                     <ul>
-                        <li>High Honor Roll: 2022-Present</li>
+                        <li>High Honor Roll: 2022-2026</li>
                         <li>National STEM Honor Society Board (2024-2026)</li>
                         <li>Mu Alpha Theta Member (2024-2026)</li>
                         <li>National Honor Society Member (2024-2026)</li>
@@ -281,65 +353,12 @@
                     </ul>
                 </div>
             </div>
-        </div>
-
-        <div class="personal-section">
-            <h2>Academic Performance</h2>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-                <div style="background: rgba(245, 218, 255, 0.05); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #F5DAFF;">
-                    <h3 style="color: #F5DAFF; font-size: 1.3rem; margin-bottom: 1rem; text-align: center;">GPA</h3>
-                    <div style="text-align: center;">
-                        <p style="font-size: 1.2rem; margin-bottom: 0.5rem;"><strong>Weighted:</strong> <span style="color: #F5DAFF; font-size: 1.4rem;">4.74/4.0</span></p>
-                        <p style="font-size: 1.2rem;"><strong>Unweighted:</strong> <span style="color: #F5DAFF; font-size: 1.4rem;">3.8/4.0</span></p>
-                    </div>
-                </div>
-                
-                <div style="background: rgba(245, 218, 255, 0.05); padding: 1.5rem; border-radius: 10px; border-left: 4px solid #F5DAFF;">
-                    <h3 style="color: #F5DAFF; font-size: 1.3rem; margin-bottom: 1rem; text-align: center;">SAT Scores</h3>
-                    <div style="text-align: center;">
-                        <p style="font-size: 1.2rem; margin-bottom: 0.5rem;"><strong>Math:</strong> <span style="color: #F5DAFF; font-size: 1.4rem;">770</span></p>
-                        <p style="font-size: 1.2rem;"><strong>EBRW:</strong> <span style="color: #F5DAFF; font-size: 1.4rem;">700</span></p>
-                        <p style="font-size: 1.1rem; opacity: 0.8;"><strong>Total:</strong> 1470</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="margin-bottom: 2rem;">
-                <h3 style="color: #F5DAFF; font-size: 1.4rem; margin-bottom: 1rem; text-align: center;">Current Coursework (2025-2026)</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                    <div>
-                        <h4 style="color: white; margin-bottom: 1rem; text-align: center;">First Semester</h4>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">AP Calculus BC</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">AT Literature: Myth and Magic</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">AP Economics (Macro/Micro)</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">AP Physics C (Mechanics + E&M)</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">AP Chemistry</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">H U.S. Government</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">Chinese IV (Honors)</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 style="color: white; margin-bottom: 1rem; text-align: center;">Second Semester</h4>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">AP Calculus BC</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">AT Literature: Chaos Theory & Creativity</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">AP Economics (Macro/Micro)</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">AP Physics C (Mechanics + E&M)</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">AP Chemistry</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">H U.S. Government</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid rgba(245, 218, 255, 0.4);">Chinese IV (Honors)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
             <div>
                 <h3 style="color: #F5DAFF; font-size: 1.4rem; margin-bottom: 1rem; text-align: center;">AP Exam Results</h3>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                     <div>
-                        <h4 style="color: white; margin-bottom: 1rem; text-align: center;">Completed (2024-2025)</h4>
+                        <h4 style="color: white; margin-bottom: 1rem; text-align: center;">Completed (2024-2026)</h4>
                         <ul style="list-style: none; padding: 0;">
                             <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #4CAF50; display: flex; justify-content: space-between;"><span>Computer Science A</span><span style="color: #4CAF50; font-weight: bold;">5</span></li>
                             <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #4CAF50; display: flex; justify-content: space-between;"><span>U.S. History</span><span style="color: #4CAF50; font-weight: bold;">4</span></li>
@@ -349,26 +368,25 @@
                         </ul>
                     </div>
                     <div>
-                        <h4 style="color: white; margin-bottom: 1rem; text-align: center;">Planned (2026)</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #FFC107;">Economics: Macroeconomics</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #FFC107;">Economics: Microeconomics</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #FFC107;">Calculus BC</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #FFC107;">Physics C: Mechanics</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #FFC107;">Physics C: E&M</li>
-                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #FFC107;">Chemistry</li>
+                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #4CAF50; display: flex; justify-content: space-between;"><span>Economics: Macroeconomics</span><span style="color: #4CAF50; font-weight: bold;">5</span></li>
+                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #4CAF50; display: flex; justify-content: space-between;"><span>Economics: Microeconomics</span><span style="color: #4CAF50; font-weight: bold;">5</span></li>
+                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #4CAF50; display: flex; justify-content: space-between;"><span>Calculus BC</span><span style="color: #4CAF50; font-weight: bold;">5</span></li>
+                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #4CAF50; display: flex; justify-content: space-between;"><span>Physics C: Mechanics</span><span style="color: #4CAF50; font-weight: bold;">4</span></li>
+                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #4CAF50; display: flex; justify-content: space-between;"><span>Physics C: E&amp;M</span><span style="color: #4CAF50; font-weight: bold;">5</span></li>
+                            <li style="background: rgba(255,255,255,0.05); padding: 0.6rem; margin-bottom: 0.4rem; border-radius: 6px; border-left: 3px solid #4CAF50; display: flex; justify-content: space-between;"><span>Chemistry</span><span style="color: #4CAF50; font-weight: bold;">4</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        </details>
 
         <div class="personal-section">
             <h2>Contact Information</h2>
             <div class="contact-info">
                 <p><strong>Email:</strong> <a href="mailto:your.email@example.com">adamkhaq@gmail.com</a></p>
                 <p><strong>GitHub:</strong> <a href="https://github.com/AdaoH3" target="_blank">github.com/AdaoH3</a></p>
-                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/adam-kamran-haq-22a8622a7/" target="_blank">linkedin.com/in/adam-kamran-haq</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/adam-haq-22a8622a7/" target="_blank">linkedin.com/in/adam-haq</a></p>
                 <p>
                     Feel free to reach out if you'd like to collaborate on a project!
                 </p>
